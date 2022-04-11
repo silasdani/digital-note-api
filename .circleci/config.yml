@@ -22,18 +22,18 @@ commands:
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.7.2-node-browsers
+      - image: circleci/ruby:3.0.1-node-browsers
       - image: circleci/postgres:9.4
         environment:
-          POSTGRES_USER: 'postgres'
+          POSTGRES_USER: "postgres"
           POSTGRES_HOST_AUTH_METHOD: trust
 
     steps:
       - checkout
       - restore_cache:
           keys:
-          - v1-bundle-dependencies-{{ checksum "Gemfile.lock" }}
-          - v1-bundle-dependencies-
+            - v1-bundle-dependencies-{{ checksum "Gemfile.lock" }}
+            - v1-bundle-dependencies-
 
       - run:
           name: install dependencies
@@ -89,7 +89,7 @@ jobs:
       - run:
           name: Check for missing annotations
           command: RAILS_ENV=test bundle exec annotate
-      
+
       # Check if running annotate changed any file
       - check_untracked_files:
           path: "app/ spec/"

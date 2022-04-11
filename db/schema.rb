@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2021_09_10_031613) do
   end
 
   create_table "active_storage_variant_records", force: :cascade do |t|
-    t.bigint "blob_id", null: false
+    t.integer "blob_id", null: false
     t.string "variation_digest", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 2021_09_10_031613) do
     t.json "custom_data"
     t.json "user_data"
     t.string "backtrace", default: [], array: true
-    t.bigint "error_group_id"
+    t.integer "error_group_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["error_group_id"], name: "index_exception_hunter_errors_on_error_group_id"
