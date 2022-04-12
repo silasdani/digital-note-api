@@ -16,6 +16,9 @@
 #  first_name             :string           default("")
 #  last_name              :string           default("")
 #  username               :string           default("")
+#  phone_no               :string           default("")
+#  address                :string           default("")
+#  profile_pic            :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  provider               :string           default("email"), not null
@@ -35,6 +38,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :trackable, :validatable
   include DeviseTokenAuth::Concerns::User
+
+  has_many :exams
 
   validates :uid, uniqueness: { scope: :provider }
 

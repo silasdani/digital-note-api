@@ -16,6 +16,9 @@
 #  first_name             :string           default("")
 #  last_name              :string           default("")
 #  username               :string           default("")
+#  phone_no               :string           default("")
+#  address                :string           default("")
+#  profile_pic            :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  provider               :string           default("email"), not null

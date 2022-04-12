@@ -2,7 +2,7 @@ module Api
   module V1
     class ApiController < ActionController::API
       include Api::Concerns::ActAsApiRequest
-      include Pundit
+      include Pundit::Authorization
       include DeviseTokenAuth::Concerns::SetUserByToken
 
       after_action :verify_authorized, except: :index
@@ -17,6 +17,11 @@ module Api
 
       def status
         render json: { online: true }
+      end
+
+      def authorized_user
+        @user = current_user
+        authorize @user
       end
 
       private

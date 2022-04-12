@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_10_031613) do
+ActiveRecord::Schema.define(version: 2022_04_12_144833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -78,6 +78,20 @@ ActiveRecord::Schema.define(version: 2021_09_10_031613) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
+  create_table "exams", force: :cascade do |t|
+    t.string "access_key"
+    t.string "name"
+    t.boolean "active"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer "security", default: 0
+    t.integer "status", default: 0
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_exams_on_user_id"
+  end
+
   create_table "exception_hunter_error_groups", force: :cascade do |t|
     t.string "error_class_name", null: false
     t.string "message"
@@ -125,6 +139,9 @@ ActiveRecord::Schema.define(version: 2021_09_10_031613) do
     t.string "first_name", default: ""
     t.string "last_name", default: ""
     t.string "username", default: ""
+    t.string "phone_no", default: ""
+    t.string "address", default: ""
+    t.string "profile_pic"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "provider", default: "email", null: false
@@ -136,5 +153,6 @@ ActiveRecord::Schema.define(version: 2021_09_10_031613) do
   end
 
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "exams", "users"
   add_foreign_key "exception_hunter_errors", "exception_hunter_error_groups", column: "error_group_id"
 end
