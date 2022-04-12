@@ -1,13 +1,10 @@
 module Api
   module V1
     class ExamsController < Api::V1::ApiController
-      before_action :logged_in_user
       before_action :set_exam, only: %i[show update]
-      before_action :authorized_user, only: %i[update]
 
       def index
         @exams = Exam.all
-        authorize current_user
         render json: ExamSerializer.new(@exams).serialized_json, status: :ok
       end
 

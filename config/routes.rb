@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       get :status, to: 'api#status'
 
       devise_scope :user do
-        resource :user, only: %i[update show]
+        resource :user, only: %i[index update show]
       end
       resources :settings, only: [] do
         get :must_update, on: :collection

@@ -19,11 +19,6 @@ module Api
         render json: { online: true }
       end
 
-      def authorized_user
-        @user = current_user
-        authorize @user
-      end
-
       private
 
       def render_not_found(exception)
