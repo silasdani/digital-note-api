@@ -2,6 +2,7 @@ module Api
   module V1
     class ExamsController < Api::V1::ApiController
       before_action :set_exam, only: %i[show update]
+      # after_action :verify_policy_scoped, except: :index
 
       def index
         @exams = Exam.all
