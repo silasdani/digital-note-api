@@ -21,11 +21,6 @@
 class Exam < ApplicationRecord
   belongs_to :user
 
-  enum status: { active: 0, draft: 1, archived: 2 }
+  enum status: { active: 0, draft: 1, archived: 2, completed: 3 }
   enum security: { low: 0, moderate: 1, high: 2 }, _suffix: true
-
-  # with_options presence: true do
-  #   validates :status, inclusion: { in: Exam.status.keys }
-  #   validates :security, inclusion: { in: Exam.security.keys }
-  # end
 end
