@@ -8,8 +8,8 @@
 #  active     :boolean
 #  start_time :datetime
 #  end_time   :datetime
-#  security   :integer          default(0)
-#  status     :integer          default(0)
+#  security   :integer          default("low")
+#  status     :integer          default("active")
 #  user_id    :bigint
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

@@ -40,10 +40,11 @@ class User < ApplicationRecord
   include DeviseTokenAuth::Concerns::User
 
   has_many :exams
+  has_one_attached :profile_pic
 
   validates :uid, uniqueness: { scope: :provider }
 
-  before_validation :init_uid
+  before_validation :init_uid, :init_username
 
   def full_name
     return username if first_name.blank?
@@ -62,5 +63,9 @@ class User < ApplicationRecord
 
   def init_uid
     self.uid = email if uid.blank? && provider == 'email'
+  end
+
+  def init_username
+    self.username = email.split('@')[0] if username.blank?
   end
 end
