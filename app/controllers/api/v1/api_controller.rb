@@ -4,6 +4,7 @@ module Api
       include Api::Concerns::ActAsApiRequest
       include Pundit::Authorization
       include DeviseTokenAuth::Concerns::SetUserByToken
+      include Api::Concerns::Base64Converter
 
       after_action :verify_authorized, except: :index
       after_action :verify_policy_scoped, only: :index
