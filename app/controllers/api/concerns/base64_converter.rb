@@ -35,6 +35,42 @@ module Api
         end
         params
       end
+
+      def converted_credential_params_from(params, user_id = nil)
+        credentials = params.fetch(:credentials)
+        keys = credentials.values.select { |v| v && !v.is_a?(Array) }.pluck(:type)
+
+        credential_type_map = CredentialType.where(name: keys).to_h do |type|
+          [type.name, type.id]
+        end
+
+        converted_credentials = []
+
+        credentials.each do |key, cred_params|
+          next if cred_params.is_a?(Array)
+          next if cred_params.blank?
+
+          type = cred_params[:type]
+          type = key.underscore if type.blank?
+
+          credential = Credential.new(
+            user_id: user_id,
+            credential_type_id: credential_type_map[type],
+            valid_through: cred_params.fetch(:valid_through, nil),
+            states_valid: cred_params.fetch(:states_valid, nil),
+            license_number: cred_params.fetch(:license_number, nil),
+            role: cred_params.fetch(:role, nil),
+            license_type: cred_params.fetch(:license_type, nil),
+            certification: cred_params.fetch(:certification, nil),
+            institution: cred_params.fetch(:institution, nil),
+            specialty_type: cred_params.fetch(:specialty_type, nil)
+          )
+
+          converted_credentials << credential if credential.document.attached?
+        end
+
+        converted_credentials
+      end
     end
   end
 end

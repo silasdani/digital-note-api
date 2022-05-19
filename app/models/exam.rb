@@ -20,6 +20,7 @@
 #
 class Exam < ApplicationRecord
   belongs_to :user, optional: true
+  has_many :questions
   validates_uniqueness_of :access_key, on: :create, message: "Access key must be unique"
 
   enum status: { active: 0, draft: 1, archived: 2, completed: 3 }

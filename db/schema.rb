@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_12_144833) do
+ActiveRecord::Schema.define(version: 2022_05_18_200347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -117,6 +117,31 @@ ActiveRecord::Schema.define(version: 2022_04_12_144833) do
     t.index ["error_group_id"], name: "index_exception_hunter_errors_on_error_group_id"
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.integer "no"
+    t.string "text_statement"
+    t.string "options"
+    t.integer "option_answer"
+    t.string "text_answer"
+    t.string "file_answer"
+    t.boolean "binary_answer"
+    t.integer "type"
+    t.integer "tag"
+    t.boolean "required"
+    t.string "description"
+    t.bigint "exam_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["exam_id"], name: "index_questions_on_exam_id"
+  end
+
   create_table "settings", force: :cascade do |t|
     t.string "key", null: false
     t.string "value"
@@ -155,4 +180,5 @@ ActiveRecord::Schema.define(version: 2022_04_12_144833) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "exams", "users"
   add_foreign_key "exception_hunter_errors", "exception_hunter_error_groups", column: "error_group_id"
+  add_foreign_key "questions", "exams"
 end
