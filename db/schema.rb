@@ -117,24 +117,17 @@ ActiveRecord::Schema.define(version: 2022_05_18_200347) do
     t.index ["error_group_id"], name: "index_exception_hunter_errors_on_error_group_id"
   end
 
-  create_table "posts", force: :cascade do |t|
-    t.string "title"
-    t.string "image"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "questions", force: :cascade do |t|
     t.integer "no"
     t.string "text_statement"
-    t.string "options"
-    t.integer "option_answer"
+    t.string "options", default: [], array: true
+    t.string "option_answer", default: [], array: true
     t.string "text_answer"
     t.string "file_answer"
-    t.boolean "binary_answer"
-    t.integer "type"
-    t.integer "tag"
-    t.boolean "required"
+    t.boolean "dual_answer"
+    t.integer "question_type", default: 0
+    t.integer "tag", default: 0
+    t.boolean "required", default: false
     t.string "description"
     t.bigint "exam_id"
     t.datetime "created_at", precision: 6, null: false

@@ -5,14 +5,14 @@
 #  id             :bigint           not null, primary key
 #  no             :integer
 #  text_statement :string
-#  options        :string
-#  option_answer  :integer
+#  options        :string           default([]), is an Array
+#  option_answer  :string           default([]), is an Array
 #  text_answer    :string
 #  file_answer    :string
-#  binary_answer  :boolean
-#  type           :integer
-#  tag            :integer
-#  required       :boolean
+#  dual_answer    :boolean
+#  question_type  :integer          default("dual")
+#  tag            :integer          default("low")
+#  required       :boolean          default(FALSE)
 #  description    :string
 #  exam_id        :bigint
 #  created_at     :datetime         not null
@@ -23,9 +23,11 @@
 #  index_questions_on_exam_id  (exam_id)
 #
 class Question < ApplicationRecord
-  serialize :option_answer, Array
-  belongs_to :exam, optional: true
+  belongs_to :exam
+  has_one_attached :file_answer
 
   enum tag: { low: 0, moderate: 1, high: 2 }, _prefix: true
-  enum type: { boolean: 0, option: 1, text: 2, file: 3 }
+  enum question_type: { dual: 0, option: 1, text: 2, file: 3 }
+
+  validates :text_statement, :question_type, :no, presence: true
 end

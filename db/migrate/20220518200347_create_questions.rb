@@ -3,14 +3,14 @@ class CreateQuestions < ActiveRecord::Migration[6.1]
     create_table :questions do |t|
       t.integer :no
       t.string :text_statement
-      t.string :options
-      t.integer :option_answer
+      t.string :options, array: true, default: []
+      t.string :option_answer, array: true, default: []
       t.string :text_answer
       t.string :file_answer
-      t.boolean :binary_answer
-      t.integer :type
-      t.integer :tag
-      t.boolean :required
+      t.boolean :dual_answer
+      t.integer :question_type, default: 0
+      t.integer :tag, default: 0
+      t.boolean :required, default: false
       t.string :description
 
       t.references :exam, foreign_key: true

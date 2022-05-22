@@ -5,14 +5,14 @@
 #  id             :bigint           not null, primary key
 #  no             :integer
 #  text_statement :string
-#  options        :string
-#  option_answer  :integer
+#  options        :string           default([]), is an Array
+#  option_answer  :string           default([]), is an Array
 #  text_answer    :string
 #  file_answer    :string
-#  binary_answer  :boolean
-#  type           :integer
-#  tag            :integer
-#  required       :boolean
+#  dual_answer    :boolean
+#  question_type  :integer          default("dual")
+#  tag            :integer          default("low")
+#  required       :boolean          default(FALSE)
 #  description    :string
 #  exam_id        :bigint
 #  created_at     :datetime         not null

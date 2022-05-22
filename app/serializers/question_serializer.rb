@@ -22,8 +22,13 @@
 #
 #  index_questions_on_exam_id  (exam_id)
 #
-require 'rails_helper'
+class QuestionSerializer
+  include FastJsonapi::ObjectSerializer
+  attributes :id, :no, :text_statement, :options, :option_answer,
+             :text_answer, :dual_answer, :question_type, :tag,
+             :required, :description, :exam_id, :created_at, :updated_at
 
-RSpec.describe Question, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  attribute :file_answer do |entity|
+    Rails.application.routes.url_helpers.rails_blob_path(entity.file_answer, only_path: true)
+  end
 end

@@ -21,14 +21,14 @@
 class Exam < ApplicationRecord
   belongs_to :user, optional: true
   has_many :questions
-  validates_uniqueness_of :access_key, on: :create, message: "Access key must be unique"
+  validates :access_key, uniqueness: { on: :create, message: 'Access key must be unique' }
 
   enum status: { active: 0, draft: 1, archived: 2, completed: 3 }
   enum security: { low: 0, moderate: 1, high: 2 }, _suffix: true
   before_validation :generate_access_key
 
   def generate_access_key
-    o = [('a'..'z'), ('A'..'Z'), ('0'..'9')].map(&:to_a).flatten
+    o = [('A'..'Z'), ('0'..'9')].map(&:to_a).flatten
     self.access_key = (0...5).map { o[rand(o.length)] }.join
   end
 end

@@ -21,4 +21,12 @@
 class ExamSerializer
   include FastJsonapi::ObjectSerializer
   attributes :access_key, :name, :status, :security, :start_time, :end_time
+  attribute :questions do |att|
+    qq = []
+    att.questions&.each do |q|
+      qq << QuestionSerializer.new(q).serializable_hash[:data][:attributes]
+    end
+
+    qq
+  end
 end

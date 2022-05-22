@@ -36,40 +36,37 @@ module Api
         params
       end
 
-      def converted_credential_params_from(params, user_id = nil)
-        credentials = params.fetch(:credentials)
-        keys = credentials.values.select { |v| v && !v.is_a?(Array) }.pluck(:type)
+      def converted_question_params_from(params, _exam_id = nil)
+        questions = params.fetch(:questions)
+        converted_questions = []
 
-        credential_type_map = CredentialType.where(name: keys).to_h do |type|
-          [type.name, type.id]
-        end
+        questions.each do |question_params|
+          next if question_params.is_a?(Array) || question_params.blank?
 
-        converted_credentials = []
-
-        credentials.each do |key, cred_params|
-          next if cred_params.is_a?(Array)
-          next if cred_params.blank?
-
-          type = cred_params[:type]
-          type = key.underscore if type.blank?
-
-          credential = Credential.new(
-            user_id: user_id,
-            credential_type_id: credential_type_map[type],
-            valid_through: cred_params.fetch(:valid_through, nil),
-            states_valid: cred_params.fetch(:states_valid, nil),
-            license_number: cred_params.fetch(:license_number, nil),
-            role: cred_params.fetch(:role, nil),
-            license_type: cred_params.fetch(:license_type, nil),
-            certification: cred_params.fetch(:certification, nil),
-            institution: cred_params.fetch(:institution, nil),
-            specialty_type: cred_params.fetch(:specialty_type, nil)
+          file = question_params.fetch(:file_answer, '')
+          question = Question.new(
+            no: question_params.fetch(:no, nil),
+            text_statement: question_params.fetch(:text_statement, nil),
+            options: question_params.fetch(:options, nil),
+            option_answer: question_params.fetch(:option_answer, nil),
+            text_answer: question_params.fetch(:text_answer, nil),
+            dual_answer: question_params.fetch(:dual_answer, nil),
+            question_type: question_params.fetch(:question_type, nil),
+            tag: question_params.fetch(:tag, nil),
+            required: question_params.fetch(:required, nil),
+            description: question_params.fetch(:description, nil),
+            exam_id: question_params.fetch(:exam_id, nil)
           )
 
-          converted_credentials << credential if credential.document.attached?
+          if /^data:.*;base64/.match? file
+            question.file_answer = base64_to_uploaded_file(file,
+                                                           'file_answer')
+          end
+
+          converted_questions << question
         end
 
-        converted_credentials
+        converted_questions
       end
     end
   end
