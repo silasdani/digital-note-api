@@ -20,7 +20,7 @@
 #
 class Exam < ApplicationRecord
   belongs_to :user, optional: true
-  has_many :questions
+  has_many :questions, dependent: :destroy
   validates :access_key, uniqueness: { on: :create, message: 'Access key must be unique' }
 
   enum status: { active: 0, draft: 1, archived: 2, completed: 3 }
