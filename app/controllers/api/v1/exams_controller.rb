@@ -35,7 +35,8 @@ module Api
       private
 
       def exam_params
-        params.require(:exam).permit(:access_key, :name, :start_time, :end_time, :security, :status)
+        convert_file_params [:file],
+        params.require(:exam).permit(:access_key, :name, :start_time, :end_time, :security, :status, :file)
       end
 
       def question_params

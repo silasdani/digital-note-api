@@ -23,6 +23,14 @@ class ExamSerializer
   set_key_transform :camel_lower
   attributes :access_key, :name, :status, :security, :start_time, :end_time
 
+  attribute :file_url do |entity|
+    if entity.file.attached?
+      "#{ENV['SERVER_HOST']}#{Rails.application.routes.url_helpers.rails_blob_path(
+        entity.file, only_path: true
+      )}"
+    end
+  end
+
   attribute :questions do |entity|
     questions = []
     entity.questions&.each do |q|
