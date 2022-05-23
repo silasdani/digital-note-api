@@ -7,7 +7,7 @@ module Api
       def create
         create_params = exam_params.merge({ questions: question_params })
 
-        @exam = Exam.create(create_params)
+        @exam = Exam.create(create_params.merge({ user_id: current_user.id }))
 
         if @exam.persisted?
           render json: ExamSerializer.new(@exam).serialized_json, status: :ok
@@ -18,7 +18,8 @@ module Api
       end
 
       def index
-        @exams = Exam.all
+        @exams = policy_scope(Exam.includes(:questions))
+
         render json: ExamSerializer.new(@exams).serialized_json, status: :ok
       end
 
@@ -45,6 +46,7 @@ module Api
 
       def set_exam
         @exam = Exam.find(params[:id])
+        authorize @exam
       end
     end
   end

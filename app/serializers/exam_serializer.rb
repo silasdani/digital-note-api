@@ -20,13 +20,15 @@
 #
 class ExamSerializer
   include FastJsonapi::ObjectSerializer
+  set_key_transform :camel_lower
   attributes :access_key, :name, :status, :security, :start_time, :end_time
-  attribute :questions do |att|
-    qq = []
-    att.questions&.each do |q|
-      qq << QuestionSerializer.new(q).serializable_hash[:data][:attributes]
+
+  attribute :questions do |entity|
+    questions = []
+    entity.questions&.each do |q|
+      questions << QuestionSerializer.new(q).serializable_hash[:data][:attributes]
     end
 
-    qq
+    questions
   end
 end

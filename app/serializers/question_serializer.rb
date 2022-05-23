@@ -24,11 +24,16 @@
 #
 class QuestionSerializer
   include FastJsonapi::ObjectSerializer
+  set_key_transform :camel_lower
   attributes :id, :no, :text_statement, :options, :option_answer,
              :text_answer, :dual_answer, :question_type, :tag,
              :required, :description, :exam_id, :created_at, :updated_at
 
-  attribute :file_answer do |entity|
-    Rails.application.routes.url_helpers.rails_blob_path(entity.file_answer, only_path: true)
+  attribute :file_answer_url do |entity|
+    if entity.file_answer.attached?
+      "#{ENV['SERVER_HOST']}#{Rails.application.routes.url_helpers.rails_blob_path(
+        entity.file_answer, only_path: true
+      )}"
+    end
   end
 end

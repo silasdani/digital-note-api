@@ -59,6 +59,10 @@ class User < ApplicationRecord
     end
   end
 
+  def admin?
+    is_a? AdminUser
+  end
+
   private
 
   def init_uid

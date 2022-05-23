@@ -10,3 +10,12 @@ en:
       invalid_content_type: Invalid content type header
       missing_param: A required param is missing
       not_found: Couldn't find the record
+  pundit:
+    user_policy:
+      show?: "You cannot view this user!"
+      create?: "You cannot create users!"
+      cannot_create_for_other_provider: "You cannot create user for selected provider!"
+    exam_policy:
+      show?: "You cannot view this exam!"
+      create?: "You cannot create exams!"
+      cannot_create_for_other_provider: "You cannot create exam for selected provider!"
