@@ -6,11 +6,8 @@
 #  no             :integer
 #  text_statement :string
 #  options        :string           default([]), is an Array
-#  option_answer  :string           default([]), is an Array
-#  text_answer    :string
-#  file_answer    :string
-#  dual_answer    :boolean
-#  question_type  :integer          default("dual")
+#  selects        :string           default([]), is an Array
+#  question_type  :integer          default("text")
 #  tag            :integer          default("low")
 #  required       :boolean          default(FALSE)
 #  description    :string

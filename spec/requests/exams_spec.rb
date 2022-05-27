@@ -5,7 +5,6 @@
 #  id         :bigint           not null, primary key
 #  access_key :string
 #  name       :string
-#  active     :boolean
 #  start_time :datetime
 #  end_time   :datetime
 #  security   :integer          default("low")

@@ -19,3 +19,6 @@ en:
       show?: "You cannot view this exam!"
       create?: "You cannot create exams!"
       cannot_create_for_other_provider: "You cannot create exam for selected provider!"
+  exam:
+    validation:
+      access_key: "Access key must be unique"

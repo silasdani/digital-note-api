@@ -4,10 +4,7 @@ class CreateQuestions < ActiveRecord::Migration[6.1]
       t.integer :no
       t.string :text_statement
       t.string :options, array: true, default: []
-      t.string :option_answer, array: true, default: []
-      t.string :text_answer
-      t.string :file_answer
-      t.boolean :dual_answer
+      t.string :selects, array: true, default: []
       t.integer :question_type, default: 0
       t.integer :tag, default: 0
       t.boolean :required, default: false

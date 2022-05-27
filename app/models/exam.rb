@@ -5,7 +5,6 @@
 #  id         :bigint           not null, primary key
 #  access_key :string
 #  name       :string
-#  active     :boolean
 #  start_time :datetime
 #  end_time   :datetime
 #  security   :integer          default("low")
@@ -21,8 +20,9 @@
 class Exam < ApplicationRecord
   belongs_to :user, optional: true
   has_many :questions, dependent: :destroy
+  has_many :replies, dependent: :destroy
   has_one_attached :file
-  validates :access_key, uniqueness: { on: :create, message: 'Access key must be unique' }
+  validates :access_key, uniqueness: { on: :create, message: I18n.t('exam.validation.access_key') }
 
   enum status: { active: 0, draft: 1, archived: 2, completed: 3 }
   enum security: { low: 0, moderate: 1, high: 2 }, _suffix: true

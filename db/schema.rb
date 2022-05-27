@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_18_200347) do
+ActiveRecord::Schema.define(version: 2022_05_27_214831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -81,7 +81,6 @@ ActiveRecord::Schema.define(version: 2022_05_18_200347) do
   create_table "exams", force: :cascade do |t|
     t.string "access_key"
     t.string "name"
-    t.boolean "active"
     t.datetime "start_time"
     t.datetime "end_time"
     t.integer "security", default: 0
@@ -117,14 +116,23 @@ ActiveRecord::Schema.define(version: 2022_05_18_200347) do
     t.index ["error_group_id"], name: "index_exception_hunter_errors_on_error_group_id"
   end
 
+  create_table "question_answers", force: :cascade do |t|
+    t.string "no"
+    t.string "text"
+    t.string "option"
+    t.string "selects", default: [], array: true
+    t.integer "points"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "reply_id"
+    t.index ["reply_id"], name: "index_question_answers_on_reply_id"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.integer "no"
     t.string "text_statement"
     t.string "options", default: [], array: true
-    t.string "option_answer", default: [], array: true
-    t.string "text_answer"
-    t.string "file_answer"
-    t.boolean "dual_answer"
+    t.string "selects", default: [], array: true
     t.integer "question_type", default: 0
     t.integer "tag", default: 0
     t.boolean "required", default: false
@@ -133,6 +141,20 @@ ActiveRecord::Schema.define(version: 2022_05_18_200347) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["exam_id"], name: "index_questions_on_exam_id"
+  end
+
+  create_table "replies", force: :cascade do |t|
+    t.string "student_name"
+    t.string "student_email"
+    t.integer "student_points"
+    t.integer "student_grade"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer "status", default: 0
+    t.bigint "exam_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["exam_id"], name: "index_replies_on_exam_id"
   end
 
   create_table "settings", force: :cascade do |t|
@@ -174,4 +196,5 @@ ActiveRecord::Schema.define(version: 2022_05_18_200347) do
   add_foreign_key "exams", "users"
   add_foreign_key "exception_hunter_errors", "exception_hunter_error_groups", column: "error_group_id"
   add_foreign_key "questions", "exams"
+  add_foreign_key "replies", "exams"
 end

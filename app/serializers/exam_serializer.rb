@@ -5,7 +5,6 @@
 #  id         :bigint           not null, primary key
 #  access_key :string
 #  name       :string
-#  active     :boolean
 #  start_time :datetime
 #  end_time   :datetime
 #  security   :integer          default("low")
@@ -32,11 +31,10 @@ class ExamSerializer
   end
 
   attribute :questions do |entity|
-    questions = []
-    entity.questions&.each do |q|
-      questions << QuestionSerializer.new(q).serializable_hash[:data][:attributes]
-    end
+    QuestionSerializer.new(entity.questions).serializable_hash[:data]
+  end
 
-    questions
+  attribute :replies do |entity|
+    ReplySerializer.new(entity.replies).serializable_hash[:data]
   end
 end

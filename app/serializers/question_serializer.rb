@@ -6,11 +6,8 @@
 #  no             :integer
 #  text_statement :string
 #  options        :string           default([]), is an Array
-#  option_answer  :string           default([]), is an Array
-#  text_answer    :string
-#  file_answer    :string
-#  dual_answer    :boolean
-#  question_type  :integer          default("dual")
+#  selects        :string           default([]), is an Array
+#  question_type  :integer          default("text")
 #  tag            :integer          default("low")
 #  required       :boolean          default(FALSE)
 #  description    :string
@@ -25,14 +22,13 @@
 class QuestionSerializer
   include FastJsonapi::ObjectSerializer
   set_key_transform :camel_lower
-  attributes :id, :no, :text_statement, :options, :option_answer,
-             :text_answer, :dual_answer, :question_type, :tag,
+  attributes :id, :no, :text_statement, :options, :question_type, :tag,
              :required, :description, :exam_id, :created_at, :updated_at
 
   attribute :file_answer_url do |entity|
-    if entity.file_answer.attached?
+    if entity.file.attached?
       "#{ENV['SERVER_HOST']}#{Rails.application.routes.url_helpers.rails_blob_path(
-        entity.file_answer, only_path: true
+        entity.file, only_path: true
       )}"
     end
   end
