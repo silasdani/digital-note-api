@@ -21,6 +21,8 @@ if Rails.env.development?
     (1..3).each do |no|
       questions << Question.new(
         no: no,
+        start_time: DateTime.now
+        end_time: DateTime.now + 2.hours
         text_statement: Faker::Lorem.question(word_count: 4, supplemental: true),
         question_type: "text"
       )

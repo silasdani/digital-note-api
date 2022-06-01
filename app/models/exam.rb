@@ -21,12 +21,20 @@ class Exam < ApplicationRecord
   belongs_to :user, optional: true
   has_many :questions, dependent: :destroy
   has_many :replies, dependent: :destroy
-  has_one_attached :file
   validates :access_key, uniqueness: { on: :create, message: I18n.t('exam.validation.access_key') }
+  validates :start_time, :end_time, presence: true
+  before_validation :generate_access_key
 
+  has_one_attached :file
   enum status: { active: 0, draft: 1, archived: 2, completed: 3 }
   enum security: { low: 0, moderate: 1, high: 2 }, _suffix: true
-  before_validation :generate_access_key
+
+  scope :active, -> { where(status: 0) }
+  scope :draft, -> { where(status: 1) }
+  scope :archived, -> { where(status: 2) }
+  scope :completed, -> { where(status: 3) }
+
+  private
 
   def generate_access_key
     o = [('A'..'Z'), ('0'..'9')].map(&:to_a).flatten

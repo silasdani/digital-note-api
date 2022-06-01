@@ -22,3 +22,13 @@ en:
   exam:
     validation:
       access_key: "Access key must be unique"
+  activerecord:
+    attributes:
+      user:
+        email: "E-mail address"
+    errors:
+      models:
+        exam:
+          attributes:
+            questions:
+              invalid: "are invalid. Check out their parameters!"

@@ -31,10 +31,10 @@ class ExamSerializer
   end
 
   attribute :questions do |entity|
-    QuestionSerializer.new(entity.questions).serializable_hash[:data]
+    QuestionSerializer.new(entity.questions).serializable_hash[:data].pluck(:attributes)
   end
 
   attribute :replies do |entity|
-    ReplySerializer.new(entity.replies).serializable_hash[:data]
+    ReplySerializer.new(entity.replies).serializable_hash[:data].pluck(:attributes)
   end
 end

@@ -12,13 +12,17 @@ module Api
         if @exam.persisted?
           render json: ExamSerializer.new(@exam).serialized_json, status: :ok
         else
-          render json: { error: 'Invalid exam parameters. Please try again.' },
-                 status: :unprocessable_entity
+          render json: { error: @exam.errors.full_messages }, status: :unprocessable_entity
         end
       end
 
       def index
-        @exams = policy_scope(Exam.includes(:questions))
+        @exams = policy_scope(Exam.includes(%i[replies questions]))
+
+        @exams = @exams.active if params[:active] == '1'
+        @exams = @exams.draft if params[:draft] == '1'
+        @exams = @exams.archived if params[:archived] == '1'
+        @exams = @exams.completed if params[:completed] == '1'
 
         render json: ExamSerializer.new(@exams).serialized_json, status: :ok
       end
@@ -28,7 +32,7 @@ module Api
       end
 
       def update
-        @exam.update exam_params
+        @exam.update! exam_params
         render json: ExamSerializer.new(@exam).serialized_json, status: :ok
       end
 
@@ -36,7 +40,11 @@ module Api
 
       def exam_params
         convert_file_params [:file],
-        params.require(:exam).permit(:access_key, :name, :start_time, :end_time, :security, :status, :file)
+                            params.require(:exam).permit(
+                              :access_key, :name, :start_time,
+                              :end_time, :security,
+                              :status, :file
+                            )
       end
 
       def question_params

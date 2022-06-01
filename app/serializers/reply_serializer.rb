@@ -24,6 +24,10 @@ class ReplySerializer
   attributes :student_name, :status, :student_email, :student_points, :end_time, :start_time,
              :student_grade
 
+  attribute :answers do |entity|
+    QuestionAnswerSerializer.new(entity.question_answers).serializable_hash[:data].pluck(:attributes)
+  end
+
   attribute :file_url do |entity|
     if entity.file.attached?
       "#{ENV['SERVER_HOST']}#{Rails.application.routes.url_helpers.rails_blob_path(
