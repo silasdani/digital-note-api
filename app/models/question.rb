@@ -24,7 +24,7 @@ class Question < ApplicationRecord
   has_one_attached :file
 
   enum tag: { low: 0, moderate: 1, high: 2 }, _prefix: true
-  enum question_type: { text: 0, option: 1, file: 2, selects: 3 }
+  enum question_type: { text: 0, option: 1, file: 2, choose: 3 }
 
   validates :text_statement, :question_type, :no, presence: true
 end

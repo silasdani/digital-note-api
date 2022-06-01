@@ -48,6 +48,7 @@ module Api
             no: question_params.fetch(:no, nil),
             text_statement: question_params.fetch(:text_statement, nil),
             options: question_params.fetch(:options, nil),
+            selects: question_params.fetch(:selects, nil),
             question_type: question_params.fetch(:question_type, nil),
             tag: question_params.fetch(:tag, nil),
             required: question_params.fetch(:required, nil),

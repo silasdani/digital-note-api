@@ -17,7 +17,7 @@ module Api
       end
 
       def index
-        @exams = policy_scope(Exam.includes(%i[replies questions]))
+        @exams = policy_scope(Exam.includes(%i[replies file_attachment]))
 
         @exams = @exams.active if params[:active] == '1'
         @exams = @exams.draft if params[:draft] == '1'
@@ -32,7 +32,8 @@ module Api
       end
 
       def update
-        @exam.update! exam_params
+        update_params = exam_params.merge({ questions: question_params })
+        @exam.update! update_params
         render json: ExamSerializer.new(@exam).serialized_json, status: :ok
       end
 

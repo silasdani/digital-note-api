@@ -22,7 +22,7 @@
 class QuestionSerializer
   include FastJsonapi::ObjectSerializer
   set_key_transform :camel_lower
-  attributes :id, :no, :text_statement, :options, :question_type, :tag,
+  attributes :id, :no, :text_statement, :options, :selects, :question_type, :tag,
              :required, :description, :exam_id, :created_at, :updated_at
 
   attribute :file_answer_url do |entity|
