@@ -21,7 +21,7 @@ class QuestionAnswerSerializer
   set_key_transform :camel_lower
   attributes :id, :no, :text, :option, :selects, :created_at, :updated_at
 
-  attribute :file_answer_url do |entity|
+  attribute :file do |entity|
     if entity.file.attached?
       "#{ENV['SERVER_HOST']}#{Rails.application.routes.url_helpers.rails_blob_path(
         entity.file, only_path: true

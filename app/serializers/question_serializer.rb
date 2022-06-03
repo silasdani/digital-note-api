@@ -25,7 +25,7 @@ class QuestionSerializer
   attributes :id, :no, :text_statement, :options, :selects, :question_type, :tag,
              :required, :description, :exam_id, :created_at, :updated_at
 
-  attribute :file_answer_url do |entity|
+  attribute :file do |entity|
     if entity.file.attached?
       "#{ENV['SERVER_HOST']}#{Rails.application.routes.url_helpers.rails_blob_path(
         entity.file, only_path: true

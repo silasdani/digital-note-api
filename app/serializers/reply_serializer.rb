@@ -28,7 +28,7 @@ class ReplySerializer
     QuestionAnswerSerializer.new(entity.question_answers).serializable_hash[:data].pluck(:attributes)
   end
 
-  attribute :file_url do |entity|
+  attribute :file do |entity|
     if entity.file.attached?
       "#{ENV['SERVER_HOST']}#{Rails.application.routes.url_helpers.rails_blob_path(
         entity.file, only_path: true
