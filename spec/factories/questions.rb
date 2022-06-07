@@ -24,7 +24,7 @@ FactoryBot.define do
     no { 1 }
     statement { "MyString" }
     text_answer { "MyString" }
-    file_answer { "MyString" }
+    file { "MyString" }
     option_answer { "MyString" }
     binary_answer { false }
     type { 1 }

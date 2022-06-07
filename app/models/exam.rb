@@ -20,7 +20,7 @@
 class Exam < ApplicationRecord
   belongs_to :user, optional: true
   has_many :questions, dependent: :destroy
-  has_many :replies, dependent: :destroy
+  has_many :submissions, dependent: :destroy
   validates :access_key, uniqueness: { on: :create, message: I18n.t('exam.validation.access_key') }
   validates :start_time, :end_time, :name, presence: true
   before_validation :generate_access_key

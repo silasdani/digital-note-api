@@ -124,8 +124,8 @@ ActiveRecord::Schema.define(version: 2022_05_27_214831) do
     t.integer "points"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "reply_id"
-    t.index ["reply_id"], name: "index_question_answers_on_reply_id"
+    t.bigint "submission_id"
+    t.index ["submission_id"], name: "index_question_answers_on_submission_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -143,26 +143,27 @@ ActiveRecord::Schema.define(version: 2022_05_27_214831) do
     t.index ["exam_id"], name: "index_questions_on_exam_id"
   end
 
-  create_table "replies", force: :cascade do |t|
-    t.string "student_name"
-    t.string "student_email"
-    t.integer "student_points"
-    t.integer "student_grade"
-    t.datetime "start_time"
-    t.datetime "end_time"
-    t.integer "status", default: 0
-    t.bigint "exam_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["exam_id"], name: "index_replies_on_exam_id"
-  end
-
   create_table "settings", force: :cascade do |t|
     t.string "key", null: false
     t.string "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["key"], name: "index_settings_on_key", unique: true
+  end
+
+  create_table "submissions", force: :cascade do |t|
+    t.string "student_name"
+    t.string "student_email"
+    t.integer "student_points"
+    t.integer "student_grade"
+    t.string "student_class"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer "status", default: 0
+    t.bigint "exam_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["exam_id"], name: "index_submissions_on_exam_id"
   end
 
   create_table "users", id: :serial, force: :cascade do |t|
@@ -196,5 +197,5 @@ ActiveRecord::Schema.define(version: 2022_05_27_214831) do
   add_foreign_key "exams", "users"
   add_foreign_key "exception_hunter_errors", "exception_hunter_error_groups", column: "error_group_id"
   add_foreign_key "questions", "exams"
-  add_foreign_key "replies", "exams"
+  add_foreign_key "submissions", "exams"
 end

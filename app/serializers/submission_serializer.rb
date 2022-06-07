@@ -1,12 +1,13 @@
 # == Schema Information
 #
-# Table name: replies
+# Table name: submissions
 #
 #  id             :bigint           not null, primary key
 #  student_name   :string
 #  student_email  :string
 #  student_points :integer
 #  student_grade  :integer
+#  student_class  :string
 #  start_time     :datetime
 #  end_time       :datetime
 #  status         :integer          default("started")
@@ -16,9 +17,9 @@
 #
 # Indexes
 #
-#  index_replies_on_exam_id  (exam_id)
+#  index_submissions_on_exam_id  (exam_id)
 #
-class ReplySerializer
+class SubmissionSerializer
   include FastJsonapi::ObjectSerializer
   set_key_transform :camel_lower
   attributes :student_name, :status, :student_email, :student_points, :end_time, :start_time,

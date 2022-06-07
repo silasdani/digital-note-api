@@ -1,12 +1,13 @@
 # == Schema Information
 #
-# Table name: replies
+# Table name: submissions
 #
 #  id             :bigint           not null, primary key
 #  student_name   :string
 #  student_email  :string
 #  student_points :integer
 #  student_grade  :integer
+#  student_class  :string
 #  start_time     :datetime
 #  end_time       :datetime
 #  status         :integer          default("started")
@@ -16,9 +17,9 @@
 #
 # Indexes
 #
-#  index_replies_on_exam_id  (exam_id)
+#  index_submissions_on_exam_id  (exam_id)
 #
-class Reply < ApplicationRecord
+class Submission < ApplicationRecord
   belongs_to :exam
   has_many :question_answers
   has_one_attached :file

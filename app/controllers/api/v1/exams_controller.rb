@@ -5,9 +5,7 @@ module Api
       skip_after_action :verify_authorized, :verify_policy_scoped
 
       def create
-        create_params = exam_params.merge({ questions: question_params })
-
-        @exam = Exam.create(create_params.merge({ user_id: current_user.id }))
+        @exam = Exam.create(exam_params.merge({ user_id: current_user.id }))
 
         if @exam.persisted?
           render json: ExamSerializer.new(@exam).serialized_json, status: :ok
@@ -17,7 +15,7 @@ module Api
       end
 
       def index
-        @exams = policy_scope(Exam.includes(%i[replies file_attachment]))
+        @exams = policy_scope(Exam.includes(%i[submissions file_attachment]))
 
         @exams = @exams.active if params[:active] == '1'
         @exams = @exams.draft if params[:draft] == '1'
@@ -32,20 +30,19 @@ module Api
       end
 
       def update
-        update_params = exam_params.merge({ questions: question_params })
-        @exam.update! update_params
+        @exam.update! exam_params
         render json: ExamSerializer.new(@exam).serialized_json, status: :ok
       end
 
       private
 
       def exam_params
-        convert_file_params [:file],
+        convert_file_params([:file],
                             params.require(:exam).permit(
                               :access_key, :name, :start_time,
                               :end_time, :security,
                               :status, :file
-                            )
+                            )).merge({ questions: question_params })
       end
 
       def question_params

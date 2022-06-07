@@ -10,6 +10,6 @@ class CreateQuestionAnswers < ActiveRecord::Migration[6.1]
       t.timestamps
     end
     
-    add_reference :question_answers, :reply, index: true
+    add_reference :question_answers, :submission, index: true
   end
 end

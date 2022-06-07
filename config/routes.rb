@@ -15,10 +15,13 @@ Rails.application.routes.draw do
       devise_scope :user do
         resource :user, only: %i[index update show]
       end
+
       resources :settings, only: [] do
         get :must_update, on: :collection
       end
+
       resources :exams
+      resources :submissions, only: %i[create index]
     end
   end
 end

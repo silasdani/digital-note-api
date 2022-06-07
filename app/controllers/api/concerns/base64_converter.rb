@@ -36,14 +36,14 @@ module Api
         params
       end
 
-      def converted_question_params_from(params, _exam_id = nil)
+      def converted_question_params_from(params)
         questions = params.fetch(:questions)
         converted_questions = []
 
         questions.each do |question_params|
           next if question_params.is_a?(Array) || question_params.blank?
 
-          file = question_params.fetch(:file_answer, '')
+          file = question_params.fetch(:file, '')
           question = Question.new(
             no: question_params.fetch(:no, nil),
             text_statement: question_params.fetch(:text_statement, nil),
@@ -57,14 +57,36 @@ module Api
           )
 
           if /^data:.*;base64/.match? file
-            question.file_answer = base64_to_uploaded_file(file,
-                                                           'file_answer')
+            question.file = base64_to_uploaded_file(file,
+                                                    'file')
           end
 
           converted_questions << question
         end
 
         converted_questions
+      end
+
+      def converted_answer_params_from(params)
+        answers = params.fetch(:question_answers)
+        converted_answers = []
+
+        answers.each do |answer_params|
+          next if answer_params.is_a?(Array) || answer_params.blank?
+
+          file = answer_params.fetch(:file, '')
+          question = QuestionAnswer.new(
+            no: answer_params.fetch(:no, nil),
+            text: answer_params.fetch(:text, nil),
+            option: answer_params.fetch(:option, nil),
+            selects: answer_params.fetch(:selects, nil)
+          )
+          question.file = base64_to_uploaded_file(file, 'file') if /^data:.*;base64/.match? file
+
+          converted_answers << question
+        end
+
+        converted_answers
       end
     end
   end

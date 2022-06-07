@@ -14,4 +14,30 @@ if Rails.env.development?
     password: "password",
     password_confirmation: "password"
   )
+  
+  (1..3).each do
+    questions = []
+
+    (1..3).each do |no|
+      questions << Question.new(
+        no: no,
+        text_statement: Faker::Lorem.question(word_count: 4, supplemental: true),
+        question_type: "text"
+      )
+    end
+
+    exam = Exam.new(
+      user_id: User.first.id,
+      name: "Love story",
+      start_time: DateTime.now,
+      end_time: DateTime.now + 2.hours
+    )
+
+    exam.active!
+    exam.low_security!
+    exam.questions = questions
+
+    exam.save!
+
+  end
 end

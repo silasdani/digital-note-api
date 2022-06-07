@@ -9,8 +9,8 @@ module Api
       after_action :verify_authorized, except: :index
       after_action :verify_policy_scoped, only: [:index]
 
-      before_action :authenticate_user!, except: :status
-      skip_after_action :verify_authorized, only: %i[status]
+      before_action :authenticate_user!, except: %i[status submission]
+      skip_after_action :verify_authorized, only: %i[status submission]
 
       rescue_from ActiveRecord::RecordNotFound,        with: :render_not_found
       rescue_from ActiveRecord::RecordInvalid,         with: :render_record_invalid
