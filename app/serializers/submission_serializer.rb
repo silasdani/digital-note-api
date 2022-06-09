@@ -14,10 +14,12 @@
 #  exam_id        :bigint
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  contestant_id  :bigint
 #
 # Indexes
 #
-#  index_submissions_on_exam_id  (exam_id)
+#  index_submissions_on_contestant_id  (contestant_id)
+#  index_submissions_on_exam_id        (exam_id)
 #
 class SubmissionSerializer
   include FastJsonapi::ObjectSerializer

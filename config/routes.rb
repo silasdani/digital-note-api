@@ -20,8 +20,13 @@ Rails.application.routes.draw do
         get :must_update, on: :collection
       end
 
-      resources :exams
+      resources :exams do
+        get :view_exam, on: :collection
+      end
       resources :submissions, only: %i[create index]
+      resources :contestants do
+        post :change_permissions, on: :collection
+      end
     end
   end
 end

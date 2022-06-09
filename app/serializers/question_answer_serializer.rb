@@ -19,7 +19,7 @@
 class QuestionAnswerSerializer
   include FastJsonapi::ObjectSerializer
   set_key_transform :camel_lower
-  attributes :id, :no, :text, :option, :selects, :created_at, :updated_at
+  attributes :id, :no, :text, :option, :selects
 
   attribute :file do |entity|
     if entity.file.attached?

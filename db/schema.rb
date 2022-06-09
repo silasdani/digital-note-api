@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_27_214831) do
+ActiveRecord::Schema.define(version: 2022_06_09_101324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -61,6 +61,18 @@ ActiveRecord::Schema.define(version: 2022_05_27_214831) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "contestants", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "student_class"
+    t.string "access_token"
+    t.string "access_key"
+    t.string "permissions", default: ["write", "read", "send", "get"], array: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "delayed_jobs", id: :serial, force: :cascade do |t|
@@ -163,6 +175,8 @@ ActiveRecord::Schema.define(version: 2022_05_27_214831) do
     t.bigint "exam_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "contestant_id"
+    t.index ["contestant_id"], name: "index_submissions_on_contestant_id"
     t.index ["exam_id"], name: "index_submissions_on_exam_id"
   end
 

@@ -23,7 +23,7 @@ class Exam < ApplicationRecord
   has_many :submissions, dependent: :destroy
   validates :access_key, uniqueness: { on: :create, message: I18n.t('exam.validation.access_key') }
   validates :start_time, :end_time, :name, presence: true
-  before_validation :generate_access_key
+  before_create :generate_access_key
 
   has_one_attached :file
   enum status: { active: 0, draft: 1, archived: 2, completed: 3 }

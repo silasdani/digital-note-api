@@ -33,8 +33,4 @@ class ExamSerializer
   attribute :questions do |entity|
     QuestionSerializer.new(entity.questions.includes([:file_attachment])).serializable_hash[:data].pluck(:attributes)
   end
-
-  attribute :submissions do |entity|
-    SubmissionSerializer.new(entity.submissions).serializable_hash[:data].pluck(:attributes)
-  end
 end
