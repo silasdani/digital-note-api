@@ -16,10 +16,14 @@
 class Contestant < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 
-  has_one :submission
+  has_one :submission, dependent: :destroy
+  before_create :generate_access_token
   validates :first_name, :last_name, presence: true
   validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }
-  before_create :generate_access_token
+  validates :access_key, acceptance: {
+    message: I18n.t('contestant.access_key'),
+    if: proc { |obj| !Exam.exists?(access_key: obj.access_key) }
+  }
 
   private
 

@@ -24,9 +24,7 @@ Rails.application.routes.draw do
         get :view_exam, on: :collection
       end
       resources :submissions, only: %i[create index]
-      resources :contestants do
-        post :change_permissions, on: :collection
-      end
+      resources :contestants
     end
   end
 end

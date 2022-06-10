@@ -19,6 +19,10 @@ en:
       show?: "You cannot view this exam!"
       create?: "You cannot create exams!"
       cannot_create_for_other_provider: "You cannot create exam for selected provider!"
+    contestant_policy:
+      show?: "You cannot view this contestant because it's not assessed to your exams!"
+      create?: "You cannot create this contestant!"
+      cannot_create_for_other_provider: "You cannot create contestant for selected provider!"
   exam:
     validation:
       access_key: "Access key must be unique"
@@ -32,3 +36,5 @@ en:
           attributes:
             questions:
               invalid: "are invalid. Check out their parameters!"
+  contestant:
+    access_key: "must be associated with a certain exam!"
