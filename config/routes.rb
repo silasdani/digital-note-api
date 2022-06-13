@@ -23,7 +23,7 @@ Rails.application.routes.draw do
       resources :exams do
         get :view_exam, on: :collection
       end
-      resources :submissions, only: %i[create index]
+      resources :submissions, only: %i[create index show]
       resources :contestants
     end
   end

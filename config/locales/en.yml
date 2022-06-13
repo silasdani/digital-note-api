@@ -19,6 +19,9 @@ en:
       show?: "You cannot view this exam!"
       create?: "You cannot create exams!"
       cannot_create_for_other_provider: "You cannot create exam for selected provider!"
+    submission_policy:
+      show?: "You cannot view this submission!"
+      cannot_create_for_other_provider: "You cannot create submission for selected provider!"
     contestant_policy:
       show?: "You cannot view this contestant because it's not assessed to your exams!"
       create?: "You cannot create this contestant!"

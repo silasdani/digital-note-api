@@ -10,10 +10,6 @@ class SubmissionPolicy < ApplicationPolicy
   end
 
   def show?
-    update?
-  end
-
-  def update?
-    user.id == record.user_id
+    record.exam.user_id == user.id
   end
 end
