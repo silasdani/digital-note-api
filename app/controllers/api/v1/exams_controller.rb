@@ -31,8 +31,11 @@ module Api
       end
 
       def update
-        @exam.update! exam_params
-        render json: ExamSerializer.new(@exam).serialized_json, status: :ok
+        if @exam.update exam_params
+          render json: ExamSerializer.new(@exam).serialized_json, status: :ok
+        else
+          render json: { error: @exam.errors.full_messages }, status: :unprocessable_entity
+        end
       end
 
       def view_exam
@@ -48,7 +51,7 @@ module Api
                             params.require(:exam).permit(
                               :access_key, :name, :start_time,
                               :end_time, :security,
-                              :status, :file
+                              :status, :file, :description
                             )).merge({ questions: question_params })
       end
 

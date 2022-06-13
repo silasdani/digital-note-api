@@ -2,16 +2,17 @@
 #
 # Table name: exams
 #
-#  id         :bigint           not null, primary key
-#  access_key :string
-#  name       :string
-#  start_time :datetime
-#  end_time   :datetime
-#  security   :integer          default("low")
-#  status     :integer          default("active")
-#  user_id    :bigint
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :bigint           not null, primary key
+#  access_key  :string
+#  name        :string
+#  start_time  :datetime
+#  end_time    :datetime
+#  security    :integer          default("low")
+#  status      :integer          default("active")
+#  user_id     :bigint
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  description :string
 #
 # Indexes
 #
@@ -20,7 +21,7 @@
 class ExamSerializer
   include FastJsonapi::ObjectSerializer
   set_key_transform :camel_lower
-  attributes :access_key, :name, :status, :security, :start_time, :end_time
+  attributes :access_key, :name, :status, :security, :start_time, :end_time, :description
 
   attribute :file do |entity|
     if entity.file.attached?
