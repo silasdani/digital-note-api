@@ -13,6 +13,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  description :string
+#  exam_type   :integer
 #
 # Indexes
 #
@@ -23,12 +24,13 @@ class Exam < ApplicationRecord
   has_many :questions, dependent: :destroy
   has_many :submissions, dependent: :destroy
   validates :access_key, uniqueness: { on: :create, message: I18n.t('exam.validation.access_key') }
-  validates :start_time, :end_time, :name, presence: true
+  validates :start_time, :end_time, :name, :exam_type, presence: true
   before_create :generate_access_key
 
   has_one_attached :file
   enum status: { active: 0, draft: 1, archived: 2, completed: 3 }
   enum security: { low: 0, moderate: 1, high: 2 }, _suffix: true
+  enum exam_type: { paper: 0, file: 1, digital: 2 }, _suffix: true
 
   scope :active, -> { where(status: 0) }
   scope :draft, -> { where(status: 1) }

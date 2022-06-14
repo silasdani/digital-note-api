@@ -51,7 +51,7 @@ module Api
                             params.require(:exam).permit(
                               :access_key, :name, :start_time,
                               :end_time, :security,
-                              :status, :file, :description
+                              :status, :file, :description, :exam_type
                             )).merge({ questions: question_params })
       end
 

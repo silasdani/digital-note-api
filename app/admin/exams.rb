@@ -1,3 +1,3 @@
 ActiveAdmin.register Exam do
-  permit_params :access_key, :name, :start_time, :end_time, :security, :status, :user_id, :questions, :submissions
+  permit_params :access_key, :name, :start_time, :end_time, :security, :status, :user_id, :questions, :submissions, :description, :exam_type
 end

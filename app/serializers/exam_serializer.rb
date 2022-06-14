@@ -13,6 +13,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  description :string
+#  exam_type   :integer
 #
 # Indexes
 #
@@ -21,7 +22,7 @@
 class ExamSerializer
   include FastJsonapi::ObjectSerializer
   set_key_transform :camel_lower
-  attributes :access_key, :name, :status, :security, :start_time, :end_time, :description
+  attributes :access_key, :name, :status, :security, :start_time, :end_time, :description, :exam_type
 
   attribute :file do |entity|
     if entity.file.attached?
