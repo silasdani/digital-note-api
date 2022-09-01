@@ -1,0 +1,772 @@
+<?xml version='1.0' encoding='UTF-8'?> 
+<xmi:XMI xmi:version='2.1' xmlns:uml='http://schema.omg.org/spec/UML/2.0' xmlns:xmi='http://schema.omg.org/spec/XMI/2.1'>
+  <xmi:Documentation exporter='Visual Paradigm' exporterVersion='7.0.2'> </xmi:Documentation>
+  <uml:Model name='My Model' xmi:id='jcBKnwaFYHEAAQV_'>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::ApplicationCable' visibility='public' xmi:id='67e12c5eccc9027ed57fc62fde444c90' xmi:type='uml:Class'/>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='ApplicationCable::Channel' visibility='public' xmi:id='d6f6d0c7d9660d4051564aab08ca6f99' xmi:type='uml:Class'>
+      <generalization general='113b2c25e72a0a11a7fe1bac21bec81b' xmi:id='FCAF4D.3C89A4' xmi:type='uml:Generalization'> </generalization>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='ApplicationCable::Connection' visibility='public' xmi:id='14e7c0acb145906db36012cda290d3f3' xmi:type='uml:Class'>
+      <generalization general='e5d086a7404dba30c1a4266421d51091' xmi:id='5C6F4C.CE989A' xmi:type='uml:Generalization'> </generalization>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::Api' visibility='public' xmi:id='977e1e7edd6b398c5d2eec973c69084b' xmi:type='uml:Class'/>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='Api::Concerns' visibility='public' xmi:id='12a8784f465046aab006966173792770' xmi:type='uml:Class'/>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='Api::Concerns::ActAsApiRequest' visibility='public' xmi:id='4b38f80165eb6ec642d9951e222982b8' xmi:type='uml:Class'>
+      <generalization general='bf1a115541aacd488726dca3cfc40861' xmi:id='9FDE96.80C501' xmi:type='uml:Generalization'> </generalization>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='check_json_request' visibility='public' xmi:id='e308234592e13c56d0827c54ebe835e1' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='46d1b7e9f57c6d6821cf2a1bf9815af7' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='skip_session_storage' visibility='public' xmi:id='604549f961eb76b1f55b831f9f49bb78' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='f32b0cdf6307bdede2156e0ea7a29c3d' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='render_error' visibility='public' xmi:id='9c4d1fc4ec67dcbf171b7956c8762b2c' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='32ee56a3af3afc5e8687c9788d8a5dc0' xmi:type='uml:Parameter'/>
+        <ownedParameter kind='inout' name='status' xmi:id='5b0191153890d921c31113b4e3efd621' xmi:type='uml:Parameter'/>
+        <ownedParameter kind='inout' name='message' xmi:id='21c1d15870bfc14122a817be10270f9c' xmi:type='uml:Parameter'/>
+        <ownedParameter kind='inout' name='_data' xmi:id='d051ef09528ecb1c429f6a0d2f7bb5d9' xmi:type='uml:Parameter'>
+          <defaultValue value='nil' xmi:id='5d75b6a132ef4fc335b63ce1f748aa46' xmi:type='uml:LiteralString'/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='request_content_type' visibility='private' xmi:id='a7a2060d12646c422f7ecad20bd541e0' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='c3f825c5a5f5f532f4749ddf62fd17c8' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='request_with_body?' visibility='private' xmi:id='3ec1832b70e209c4a6934fec6d4a8706' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='10b6409bf7a3ee33c054240fd47f2bc8' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='json_request?' visibility='private' xmi:id='48af7797efde67bfd067cb8f0298ede4' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='1061532d4d15eb528f07f8ec427d826b' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='Api::Concerns::Base64Converter' visibility='public' xmi:id='054da3778d5c56fdf63eebc52733f3b4' xmi:type='uml:Class'>
+      <generalization general='17451b7e4b027910f84048c1e0fca574' xmi:id='660EE7.87A3CA' xmi:type='uml:Generalization'> </generalization>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='base64_to_uploaded_file' visibility='public' xmi:id='6a9c1e641ae040654e0adf95f519238e' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='5d61163f295f3d67f57b67c76dec8e5f' xmi:type='uml:Parameter'/>
+        <ownedParameter kind='inout' name='input' xmi:id='28bcbce63cdd0eab7204e5bc36a130e2' xmi:type='uml:Parameter'/>
+        <ownedParameter kind='inout' name='filename' xmi:id='4d7172ca6f306fcacf8d538b599a4b5f' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='convert_file_params' visibility='public' xmi:id='2e94f572fdc2c7d687996f6178d0ea8a' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='ba09d6d2bcf56db233abe4aeb91cdb87' xmi:type='uml:Parameter'/>
+        <ownedParameter kind='inout' name='param_names' xmi:id='556f540904a1c23ce05bfdebaa1791a1' xmi:type='uml:Parameter'/>
+        <ownedParameter kind='inout' name='params' xmi:id='e93067867484127cdfdc7e6e29ffedd9' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='converted_question_params_from' visibility='public' xmi:id='2c2f41bf3b249622d9aeb51773755cc2' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='381f5fefe2d3fc86fc462fa9a9db21b8' xmi:type='uml:Parameter'/>
+        <ownedParameter kind='inout' name='params' xmi:id='8616c2a79d89ca6cfd7f3d58f1fe0a11' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='converted_answer_params_from' visibility='public' xmi:id='5d48f07c95ace71973da6efb57982cc7' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='6bacab9d8e6943e8377d643c418e8c62' xmi:type='uml:Parameter'/>
+        <ownedParameter kind='inout' name='params' xmi:id='8cd72cd5e7d57758efdbc70b1fcb4128' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='Api::V1' visibility='public' xmi:id='cf8addd9860491a07f2a49f8c99de490' xmi:type='uml:Class'/>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='Api::V1::ApiController' visibility='public' xmi:id='b66f6176148260b2b0f6513c24b0f654' xmi:type='uml:Class'>
+      <generalization general='166730adf6d5d9801981ff7d9207d26c' xmi:id='34A39B.FC7361' xmi:type='uml:Generalization'> </generalization>
+      <generalization general='4b38f80165eb6ec642d9951e222982b8' xmi:id='34A39B.FC7361' xmi:type='uml:Generalization'> </generalization>
+      <generalization general='e28b4735f9acab9c5e0218ca094423d8' xmi:id='34A39B.FC7361' xmi:type='uml:Generalization'> </generalization>
+      <generalization general='06b497ee177b129ed67f8b03acf7ebf4' xmi:id='34A39B.FC7361' xmi:type='uml:Generalization'> </generalization>
+      <generalization general='054da3778d5c56fdf63eebc52733f3b4' xmi:id='34A39B.FC7361' xmi:type='uml:Generalization'> </generalization>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='status' visibility='public' xmi:id='aa1e3c20a3547e334c5488fca38a0ec5' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='a4c53f64f3563ef37c4cc962ec0232f8' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='render_not_found' visibility='private' xmi:id='a75ec26464ec6e202a705606d59ed306' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='49cbcd159c64d8b9cea8147b4364673f' xmi:type='uml:Parameter'/>
+        <ownedParameter kind='inout' name='exception' xmi:id='248f5cff07db856be53b4652c8fae2dc' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='render_record_invalid' visibility='private' xmi:id='79593c04c98d3224da66096eb2e6847a' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='ee03cbf300ecda98d8704a13d5f1dff9' xmi:type='uml:Parameter'/>
+        <ownedParameter kind='inout' name='exception' xmi:id='ab29e93c1edc0e97f99f4a8b5d2392c5' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='render_parameter_missing' visibility='private' xmi:id='fa7251a545df8c7998b2c3084fbb584b' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='a00bbb9802cdcbc0d8b72235c3870528' xmi:type='uml:Parameter'/>
+        <ownedParameter kind='inout' name='exception' xmi:id='9b1355ff77f56d1b3dafa0674fb977c8' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='Api::V1::ContestantsController' visibility='public' xmi:id='e4182899ae45d220e5624fea660c6072' xmi:type='uml:Class'>
+      <generalization general='b66f6176148260b2b0f6513c24b0f654' xmi:id='CF367F.C19A41' xmi:type='uml:Generalization'> </generalization>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='index' visibility='public' xmi:id='e695c466b4a78bc050e6f32d064c5d86' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='71076840d0ed188b49cfe414bdcfbc8c' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='create' visibility='public' xmi:id='21965264bb94974a5a8790442cb0597e' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='eed7559f19edfafd14ce1d4f89dbb706' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='update' visibility='public' xmi:id='46d40c34ef7fee59e09b07080a6c0d66' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='10aa7b2a008d846dbce733cdd95b9039' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='show' visibility='public' xmi:id='110c5c666599278f020e72cee63627db' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='0f4ad9b91e5aec448af48f1b20f9ff6e' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='contestant_params' visibility='private' xmi:id='a73be46042fbf6d428f5282a032e5144' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='bc7922de39a9d436f9b387ca58341a09' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='set_contestant' visibility='private' xmi:id='1e0bbbd8e17c5e6381fcd6486b8f744d' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='6f7502c41e244a481f53e2e11a97a61d' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='Api::V1::ExamsController' visibility='public' xmi:id='f88d27672995bc9bbba011edc48036be' xmi:type='uml:Class'>
+      <generalization general='b66f6176148260b2b0f6513c24b0f654' xmi:id='0DB78E.A94135' xmi:type='uml:Generalization'> </generalization>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='create' visibility='public' xmi:id='8e58a2067eda881aa26986f53125a4da' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='e2e0e73e0410becc348643424b81e838' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='index' visibility='public' xmi:id='57f0b85e5ecb7382546f77112a352686' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='f2069f9f5919fe150b74cabf83312c7e' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='show' visibility='public' xmi:id='184964fecfe9a84fdfafbdd5e6c0e804' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='f8ffe95ebffc21d0d239aa8c2defab67' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='update' visibility='public' xmi:id='ccf194ff9ff311cc61798f540002def6' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='42c62676bd33c5f795ff9d868d91ad02' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='view_exam' visibility='public' xmi:id='cdc5a286690bf0b49a42d56cc02f4c7d' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='e960c676c3a3229cdb6509226e507aba' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='exam_params' visibility='private' xmi:id='89515a0be581044445a5a7dc5629d155' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='70a786ec80fb11a3805787a8c16ea5aa' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='question_params' visibility='private' xmi:id='3c05e13d7b7449b4ffab8e074c29c9a1' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='196fd46adcd19c8726f2361fd158bd42' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='set_exam' visibility='private' xmi:id='be6fb80f7eb91d201a57d352075b0461' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='08b03f73a0abfbd6f9baed0c3ef1e81c' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='Api::V1::PasswordsController' visibility='public' xmi:id='7ecaee6b91b79b0fc0094a6586cdb233' xmi:type='uml:Class'>
+      <generalization general='08adc046072c0c42ed7fcd0375048acd' xmi:id='A36B70.DC9A83' xmi:type='uml:Generalization'> </generalization>
+      <generalization general='4b38f80165eb6ec642d9951e222982b8' xmi:id='A36B70.DC9A83' xmi:type='uml:Generalization'> </generalization>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='Api::V1::RegistrationsController' visibility='public' xmi:id='341eb73f243d13096d03110a083862bc' xmi:type='uml:Class'>
+      <generalization general='655fdfda1ba8a0a71668876dee3e912c' xmi:id='9415D7.27BCAE' xmi:type='uml:Generalization'> </generalization>
+      <generalization general='4b38f80165eb6ec642d9951e222982b8' xmi:id='9415D7.27BCAE' xmi:type='uml:Generalization'> </generalization>
+      <generalization general='054da3778d5c56fdf63eebc52733f3b4' xmi:id='9415D7.27BCAE' xmi:type='uml:Generalization'> </generalization>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='sign_up_params' visibility='private' xmi:id='c2ca5ccf57ddd67ac7619da53b7db69e' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='864c3c6125be5f44f8be7a585600f2f5' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='render_create_success' visibility='private' xmi:id='335229e521b5afa170a69f266c530cab' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='06f9607cf6f69dbbade2c5221e8bae23' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='Api::V1::SessionsController' visibility='public' xmi:id='7e6735f09c0a9a32f8082f4fec34a7cc' xmi:type='uml:Class'>
+      <generalization general='5cb97ed4ff5f54aa94532e0b43a92e17' xmi:id='2E6A72.21A57C' xmi:type='uml:Generalization'> </generalization>
+      <generalization general='4b38f80165eb6ec642d9951e222982b8' xmi:id='2E6A72.21A57C' xmi:type='uml:Generalization'> </generalization>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='resource_params' visibility='private' xmi:id='3a8a71258161f1f0eb6fbf8fc422b2d1' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='cae2b445138c9843695314e13035aa4c' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='render_create_success' visibility='private' xmi:id='79ab5160c0cb7a4ae4a7bf4927153d02' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='60e1b41e8a41d647d77a9f731a5115af' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='Api::V1::SettingsController' visibility='public' xmi:id='0c92dbf0579b0b356084b5e63cfd3696' xmi:type='uml:Class'>
+      <generalization general='b66f6176148260b2b0f6513c24b0f654' xmi:id='9579C0.0AE436' xmi:type='uml:Generalization'> </generalization>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='must_update' visibility='public' xmi:id='f7712f97b8e110517dd548ffce6c1e2d' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='c9f77775481f7286194f3d673595ea00' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='version' visibility='private' xmi:id='2c04edf5994fe21bc1d8eccad6769f5a' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='fbacb83eca6ff5ddd53aaf20d3843a36' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='Api::V1::SubmissionsController' visibility='public' xmi:id='1404e71cb4a0088cbdee8b51f79c2f21' xmi:type='uml:Class'>
+      <generalization general='b66f6176148260b2b0f6513c24b0f654' xmi:id='23A21D.9DBFEA' xmi:type='uml:Generalization'> </generalization>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='index' visibility='public' xmi:id='65c318c5329ceae578a5941b4a677efb' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='a98a9bba157393ab785220467fd8db79' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='create' visibility='public' xmi:id='f6126ab55d670bd16c79bcdec7752ec4' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='07ccbbe97310f6dcb5177153d535750d' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='show' visibility='public' xmi:id='1fcd6e72c5b58281c03c3a2569e5e8eb' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='83fc0fb5f0ca45aba202c83e9b61efb4' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='submission_params' visibility='private' xmi:id='1312096bda25031a50b57baeec0a32fa' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='33d7fa248a36dfcdf12554d49b61fc5e' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='question_answer_params' visibility='private' xmi:id='592a7cc5ae0919c59333b7c9a2f519eb' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='f21d7b0876ed0719822786d25aa7152e' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='set_submission' visibility='private' xmi:id='48dc86bbd88f0fbc2ac91454f152d7b6' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='22d9b7ab4cbfeb66ad94f211905d1c62' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='Api::V1::UsersController' visibility='public' xmi:id='3bd79ed72aebd202522669376d3cde4d' xmi:type='uml:Class'>
+      <generalization general='b66f6176148260b2b0f6513c24b0f654' xmi:id='0290B3.A20DE5' xmi:type='uml:Generalization'> </generalization>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='show' visibility='public' xmi:id='d00cb2ff61483686063fb071a52f91da' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='714ac6d9a7b57f9e614d9e3554099fca' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='update' visibility='public' xmi:id='5cfc496ee92016d570b1f3839cd4e40e' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='87a1858f75ec3c5257fb7060909415a5' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='auth_user' visibility='private' xmi:id='f719c7582dfeba29bad09b4886378462' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='51cc309ed2b9d8368a8c7ab759f803a8' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='user_params' visibility='private' xmi:id='7eb95e88c64bcd42a424912d338b6324' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='8525339f17d0a8f1edcaaf44517550fe' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::ApplicationController' visibility='public' xmi:id='cd8cc7547043cc31def246966439e7ff' xmi:type='uml:Class'>
+      <generalization general='2e17e9b7b2b227b1bfcd8226443a90f7' xmi:id='01EB0D.757143' xmi:type='uml:Generalization'> </generalization>
+      <generalization general='360ab3b6ad56b7a6287f8cc95b58b3f2' xmi:id='01EB0D.757143' xmi:type='uml:Generalization'> </generalization>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='active_admin_controller?' visibility='public' xmi:id='a9d9ecc107716e393ce968adc14ac066' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='3a7671b06b187473884570f002a816d0' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::ExamDecorator' visibility='public' xmi:id='c6e3187e23904eaa1e6524b23fcf038d' xmi:type='uml:Class'>
+      <generalization general='b29c781876c1a16aa0312b651bcecb9f' xmi:id='56083F.A3BE1B' xmi:type='uml:Generalization'> </generalization>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::QuestionDecorator' visibility='public' xmi:id='5b9d5f87b4c2b2a764f9db42d6e013ea' xmi:type='uml:Class'>
+      <generalization general='b29c781876c1a16aa0312b651bcecb9f' xmi:id='23790B.0680E1' xmi:type='uml:Generalization'> </generalization>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::UserDecorator' visibility='public' xmi:id='8af28eb862fdd7f17abc16c1a4eee388' xmi:type='uml:Class'>
+      <generalization general='b29c781876c1a16aa0312b651bcecb9f' xmi:id='CC0DB0.A0979F' xmi:type='uml:Generalization'> </generalization>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::ApplicationForm' visibility='public' xmi:id='254856909d23a332715ff5b2b3478e4a' xmi:type='uml:Class'>
+      <generalization general='a1f7b5e6a34450b88859828aaca9fb8c' xmi:id='E56F47.6B3F9C' xmi:type='uml:Generalization'> </generalization>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::ApplicationJob' visibility='public' xmi:id='7378d7e2ebcbe1a693f66b2207e5d731' xmi:type='uml:Class'>
+      <generalization general='a86c2feaafd0ed10ec6c8b28d1a729b0' xmi:id='FC744C.01866C' xmi:type='uml:Generalization'> </generalization>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::ApplicationMailer' visibility='public' xmi:id='ac7353895f0ddf3e8d037bb10200bf60' xmi:type='uml:Class'>
+      <generalization general='404664b32e10f3121fb806c88c72a03f' xmi:id='ED7C99.B35018' xmi:type='uml:Generalization'> </generalization>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::AdminUser' visibility='public' xmi:id='62140a7b85bba1552813951058d6475b' xmi:type='uml:Class'>
+      <generalization general='792caec8c9ca723a50c1122d6527f1c0' xmi:id='C14DB0.DE4B91' xmi:type='uml:Generalization'> </generalization>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::ApplicationRecord' visibility='public' xmi:id='792caec8c9ca723a50c1122d6527f1c0' xmi:type='uml:Class'>
+      <generalization general='8d02ce9591f08f819bbd5b9916ee550c' xmi:id='3EB2BD.50018B' xmi:type='uml:Generalization'> </generalization>
+      <generalization general='42530ddad4b214b636b8774885c50aae' xmi:id='3EB2BD.50018B' xmi:type='uml:Generalization'> </generalization>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::Contestant' visibility='public' xmi:id='125823b8c7de0ad1a9c4291739cde516' xmi:type='uml:Class'>
+      <generalization general='792caec8c9ca723a50c1122d6527f1c0' xmi:id='FDDF05.D66E0D' xmi:type='uml:Generalization'> </generalization>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='generate_access_token' visibility='private' xmi:id='42d37d10fee2875a97146963de8b126c' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='ed35552479f63d73e9b751bf5703f99f' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::Exam' visibility='public' xmi:id='c1f3f000c52e0ff0eb44412eaa67d0b9' xmi:type='uml:Class'>
+      <generalization general='792caec8c9ca723a50c1122d6527f1c0' xmi:id='522CBD.55FCFD' xmi:type='uml:Generalization'> </generalization>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='generate_access_key' visibility='private' xmi:id='5829e1f0d3ffee5dbef363caed2f839a' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='5b3e7a620b579995b0cdb1ec8410d45f' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::Question' visibility='public' xmi:id='d819705e3a3e8511b0552eeb6d869839' xmi:type='uml:Class'>
+      <generalization general='792caec8c9ca723a50c1122d6527f1c0' xmi:id='68D80C.A5C767' xmi:type='uml:Generalization'> </generalization>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::QuestionAnswer' visibility='public' xmi:id='093779eef425c10528b52658eadef31c' xmi:type='uml:Class'>
+      <generalization general='792caec8c9ca723a50c1122d6527f1c0' xmi:id='C281DF.569921' xmi:type='uml:Generalization'> </generalization>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::Setting' visibility='public' xmi:id='23e34fc7f56576c598eb540152f2bba2' xmi:type='uml:Class'>
+      <generalization general='792caec8c9ca723a50c1122d6527f1c0' xmi:id='A32A73.11415C' xmi:type='uml:Generalization'> </generalization>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::Submission' visibility='public' xmi:id='93d5359c806b75455f2b9c8892a9bf83' xmi:type='uml:Class'>
+      <generalization general='792caec8c9ca723a50c1122d6527f1c0' xmi:id='FD5122.5F9C8F' xmi:type='uml:Generalization'> </generalization>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::User' visibility='public' xmi:id='bc57386307767ebdfe9003d0a3f2f296' xmi:type='uml:Class'>
+      <generalization general='792caec8c9ca723a50c1122d6527f1c0' xmi:id='32F349.3321A3' xmi:type='uml:Generalization'> </generalization>
+      <generalization general='5cbaaad9e23825961b338fd874295c6e' xmi:id='32F349.3321A3' xmi:type='uml:Generalization'> </generalization>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='true' isUnique='true' name='from_social_provider' visibility='public' xmi:id='b02fa8c922264756c129b8045dc0d4c2' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='8bde0869ca1315a71cf440c0c0e5f298' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='full_name' visibility='public' xmi:id='0c47809a220ff548d1269c67f6f68c69' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='9221f12af7865e1c7e10d353b2167fc9' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='admin?' visibility='public' xmi:id='77a8754f577074d067cf9398c90bd92c' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='27416f423d7986682415cbb8c2477c65' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='init_uid' visibility='private' xmi:id='736dda89830c89dd25a6e36cadf7bc97' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='05c2f4b4ac213927d0cce9371e1357fe' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='init_username' visibility='private' xmi:id='8075ad5c8f407c6547dc6f03c1da2ef4' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='6e72375c6a11a50dd5647b5accd8f5bb' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::Admin' visibility='public' xmi:id='e4e88817ab5a763145aa5dd2d021ffa2' xmi:type='uml:Class'/>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='Admin::AdminUserPolicy' visibility='public' xmi:id='633e607727b085cef57d69a7774e0cb6' xmi:type='uml:Class'>
+      <generalization general='8720592a25b8cb03ead681676289541d' xmi:id='81BB01.52273D' xmi:type='uml:Generalization'> </generalization>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='Admin::ApplicationPolicy' visibility='public' xmi:id='8720592a25b8cb03ead681676289541d' xmi:type='uml:Class'>
+      <ownedAttribute aggregation='none' isDerived='false' isDerivedUnion='false' isID='false' isLeaf='false' isReadOnly='false' isStatic='false' name='user' visibility='public' xmi:id='533ae21e5520c071a8b98e2e9819117d' xmi:type='uml:Property'/>
+      <ownedAttribute aggregation='none' isDerived='false' isDerivedUnion='false' isID='false' isLeaf='false' isReadOnly='false' isStatic='false' name='record' visibility='public' xmi:id='669c221cca631388bdccd2971bb06f5f' xmi:type='uml:Property'/>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='initialize' visibility='public' xmi:id='b67daaf7e214797e06536b28dd036115' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='48829e68e91d96ddaa6f8cd82e06937b' xmi:type='uml:Parameter'/>
+        <ownedParameter kind='inout' name='user' xmi:id='b10b4c469a0a343961cb4ef5ef00d214' xmi:type='uml:Parameter'/>
+        <ownedParameter kind='inout' name='record' xmi:id='cddb62eae6f9b4f0bbd818c49d7cefcf' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='index?' visibility='public' xmi:id='f05c78bb00fbf34b684f936148116b35' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='2d91e8f5dc14fa16036cbea70e4a9bb9' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='show?' visibility='public' xmi:id='2f767f28a0e0c14deaed9779f313c4ce' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='aad7a50d4c9308b8d9dfe9f261f3fc0a' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='create?' visibility='public' xmi:id='71b25eeeb7450748cedbad263711a88b' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='4106e0197fe9e446be9bff167e612829' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='new?' visibility='public' xmi:id='80aee37bfe841634666c0737e5626dbd' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='25aa6b4efdccf6d15f9c7f4df29871ae' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='update?' visibility='public' xmi:id='ebd52f875662c5916e6e82d8f7186e63' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='6b5579a3947ba430f145673b82284a01' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='edit?' visibility='public' xmi:id='c6ff54e143159871c7000320b52c495b' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='a74d3214c267d6cd111a1a446862c0cd' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='destroy?' visibility='public' xmi:id='82b1bfcfb3a497395993fb6993f8ccf2' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='b8c2851c337cd3317a774c72212769e2' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='Admin::ApplicationPolicy::Scope' visibility='public' xmi:id='7523738b7324cab23fafd6dfb24b2dc2' xmi:type='uml:Class'>
+      <ownedAttribute aggregation='none' isDerived='false' isDerivedUnion='false' isID='false' isLeaf='false' isReadOnly='false' isStatic='false' name='user' visibility='public' xmi:id='07a64814e7291f8c8eb5dd6b1d19545f' xmi:type='uml:Property'/>
+      <ownedAttribute aggregation='none' isDerived='false' isDerivedUnion='false' isID='false' isLeaf='false' isReadOnly='false' isStatic='false' name='scope' visibility='public' xmi:id='6d06afaee630bc612e79dc12172e6f89' xmi:type='uml:Property'/>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='initialize' visibility='public' xmi:id='2a4921e88ceaa0d73955617c039946c1' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='144caf6c007c68d91fd44b789b5ec095' xmi:type='uml:Parameter'/>
+        <ownedParameter kind='inout' name='user' xmi:id='f4a7864306abeea6a66d5b188fb102ff' xmi:type='uml:Parameter'/>
+        <ownedParameter kind='inout' name='scope' xmi:id='0ab8d4c2759b8f3154633cddfc6dd14a' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='resolve' visibility='public' xmi:id='b3d97b4f20146d640538f14df539cef0' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='d1688b7e1b377424258a9a7a6a21e59a' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='Admin::PagePolicy' visibility='public' xmi:id='86e31855266c16083a725ca50536926d' xmi:type='uml:Class'>
+      <generalization general='8720592a25b8cb03ead681676289541d' xmi:id='07C6A4.265263' xmi:type='uml:Generalization'> </generalization>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='show?' visibility='public' xmi:id='8dbc23abf500d7df8ff24e9e6cf79647' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='87acb8625feef6b2198ba2891ef77e6e' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='Admin::UserPolicy' visibility='public' xmi:id='f19876f1f79608fb3e54e98f03f14996' xmi:type='uml:Class'>
+      <generalization general='8720592a25b8cb03ead681676289541d' xmi:id='A0DBB9.151B37' xmi:type='uml:Generalization'> </generalization>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::AdminUserPolicy' visibility='public' xmi:id='a6bba616183caab561baffce4358fed1' xmi:type='uml:Class'>
+      <generalization general='8930f374581ff6e2676f9448c104c1e6' xmi:id='171359.B4F8A6' xmi:type='uml:Generalization'> </generalization>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::ApplicationPolicy' visibility='public' xmi:id='8930f374581ff6e2676f9448c104c1e6' xmi:type='uml:Class'>
+      <ownedAttribute aggregation='none' isDerived='false' isDerivedUnion='false' isID='false' isLeaf='false' isReadOnly='false' isStatic='false' name='user' visibility='public' xmi:id='c695548d6786dddd8c1933b7e50f54a7' xmi:type='uml:Property'/>
+      <ownedAttribute aggregation='none' isDerived='false' isDerivedUnion='false' isID='false' isLeaf='false' isReadOnly='false' isStatic='false' name='record' visibility='public' xmi:id='e26fa4df0c43f583929ea3f6b6bcd9e4' xmi:type='uml:Property'/>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='initialize' visibility='public' xmi:id='8ed0bb3a0c77963cec063ddc7eb3c7dc' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='56dc3910ae6db5a412094daace5dea38' xmi:type='uml:Parameter'/>
+        <ownedParameter kind='inout' name='user' xmi:id='b3bab6204afeab378418ea182b207e02' xmi:type='uml:Parameter'/>
+        <ownedParameter kind='inout' name='record' xmi:id='87ac33d21d1396caeb7238548a913fa0' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='index?' visibility='public' xmi:id='eb6fec642a5c181e7d2b7252f03665dc' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='29b0fac8488b1abdf679ab8c72a95446' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='show?' visibility='public' xmi:id='b2c1b8f58f9959da60bfa6015049c896' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='639653ac3515376d5e5c1124bd3d0ca9' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='create?' visibility='public' xmi:id='e1f4aa029eb4413f28b38f131ff59ef1' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='c546d452902843430e6aac77bc4ba245' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='new?' visibility='public' xmi:id='a7453c9ab5fa2e4a11d4d42f313b0014' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='33daa7ef3709d96b321a2a487f759ab6' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='update?' visibility='public' xmi:id='c6f08078cde5789723f9d7ba79c8d930' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='29c572dd364a0e05d087f22541348835' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='edit?' visibility='public' xmi:id='8414cdce36b68c1a9db2d2aa327794a5' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='c30f7248b190d538d1edca8b1ffc8ffe' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='destroy?' visibility='public' xmi:id='fb38b3bfccaac49341f15020f8acc4e9' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='dee68b153912d2a82f2af8241c38c302' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='ApplicationPolicy::Scope' visibility='public' xmi:id='0829663e64f2062fa942fff098a1793a' xmi:type='uml:Class'>
+      <ownedAttribute aggregation='none' isDerived='false' isDerivedUnion='false' isID='false' isLeaf='false' isReadOnly='false' isStatic='false' name='user' visibility='public' xmi:id='81e93728ec4d29d4b3c2b281e80df281' xmi:type='uml:Property'/>
+      <ownedAttribute aggregation='none' isDerived='false' isDerivedUnion='false' isID='false' isLeaf='false' isReadOnly='false' isStatic='false' name='scope' visibility='public' xmi:id='be89ff55f5cac55f9425ea85b9919e51' xmi:type='uml:Property'/>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='initialize' visibility='public' xmi:id='2c1bbb4e8971ca1b859fd95709a5814a' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='fffc445385e90f45829997d83a91ec2a' xmi:type='uml:Parameter'/>
+        <ownedParameter kind='inout' name='user' xmi:id='b5e7a9a5d8c3a20389d01e6fb56faf8e' xmi:type='uml:Parameter'/>
+        <ownedParameter kind='inout' name='scope' xmi:id='506a7c17de6b090f53d33fbb36764607' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='resolve' visibility='public' xmi:id='cfea43aa8847bc8b853c5c3841032e7e' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='0c42eb75263fdee17336bac9a343312f' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::ContestantPolicy' visibility='public' xmi:id='8675b9871235a267586d95f3ea0111fb' xmi:type='uml:Class'>
+      <generalization general='8930f374581ff6e2676f9448c104c1e6' xmi:id='807A84.CB82C2' xmi:type='uml:Generalization'> </generalization>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='show?' visibility='public' xmi:id='d1ee6414e19e249db445880a8e348cee' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='60024b002540cdef2adfa1c9e014dfc8' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='update?' visibility='public' xmi:id='fb27f1e077fc02de27692540324197e6' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='3b7968bc9ddad38dbd843c41a090a68d' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='ContestantPolicy::Scope' visibility='public' xmi:id='154b849e2a6c532e7b9d748bf4b85b30' xmi:type='uml:Class'>
+      <generalization general='bd6406882e10956a82c0a3e96a3bf3a8' xmi:id='09E9E0.1830CE' xmi:type='uml:Generalization'> </generalization>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='resolve' visibility='public' xmi:id='5723e17b24652027c92010e5d9f01b80' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='6897cd5019972f653015f4f9958b86d3' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::ExamPolicy' visibility='public' xmi:id='4baccc4b59c78565959715cd27d51db0' xmi:type='uml:Class'>
+      <generalization general='8930f374581ff6e2676f9448c104c1e6' xmi:id='AAAEA5.DF8114' xmi:type='uml:Generalization'> </generalization>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='show?' visibility='public' xmi:id='4ff5b1a346f93687355f1fef0d14bc90' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='b5fdd7ff3f9ccedc4f5ef3a73251e4eb' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='update?' visibility='public' xmi:id='80063dcdd6d209ea2dd04afea3cd40b0' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='7a266eef69084d3e301dd08c2973ce90' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='ExamPolicy::Scope' visibility='public' xmi:id='84434db500b1732fc329238b64a51e7e' xmi:type='uml:Class'>
+      <generalization general='bd6406882e10956a82c0a3e96a3bf3a8' xmi:id='E47C3C.F0E79F' xmi:type='uml:Generalization'> </generalization>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='resolve' visibility='public' xmi:id='98db33261d4456d1fd9d658959508f67' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='e79a05129b19a260b88ed8db3a6ec2ff' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::SubmissionPolicy' visibility='public' xmi:id='4e7c4f8a7ac3f5a6769c77262b9aef69' xmi:type='uml:Class'>
+      <generalization general='8930f374581ff6e2676f9448c104c1e6' xmi:id='5F54E0.F6DB09' xmi:type='uml:Generalization'> </generalization>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='show?' visibility='public' xmi:id='732ada69980447a3078e85df4409f5db' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='386835e78a4333d0cc17fdf423798f5b' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='SubmissionPolicy::Scope' visibility='public' xmi:id='9cb8daab67a120335246c1dcaaa2d66b' xmi:type='uml:Class'>
+      <generalization general='bd6406882e10956a82c0a3e96a3bf3a8' xmi:id='0CBF30.812383' xmi:type='uml:Generalization'> </generalization>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='resolve' visibility='public' xmi:id='dedf168041df6bc08678eabc0ef7e81a' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='2d0ff891a028529ee518cd87dc67cdca' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::UserPolicy' visibility='public' xmi:id='b24f0ad6152983d4d4c5187d0f6673f3' xmi:type='uml:Class'>
+      <generalization general='8930f374581ff6e2676f9448c104c1e6' xmi:id='BD4EEA.25CCCD' xmi:type='uml:Generalization'> </generalization>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='show?' visibility='public' xmi:id='f844e0d17a64f46c8f8f0ff209a92959' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='2f147637bb18400ab62329f2113a11f6' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+      <ownedOperation isAbstract='false' isLeaf='false' isOrdered='false' isQuery='false' isStatic='' isUnique='true' name='update?' visibility='public' xmi:id='afac3df0ba9ca407f7e9812f933c05a1' xmi:type='uml:Operation'>
+        <ownedParameter kind='return' xmi:id='1a48b58df31221a206ffcb648b5cc8bc' xmi:type='uml:Parameter'/>
+      </ownedOperation>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::ContestantSerializer' visibility='public' xmi:id='51c339cec87daa205fa77df528ff3dc3' xmi:type='uml:Class'>
+      <generalization general='d055b09bbda3106022b303614c596f40' xmi:id='F3FB4A.9DF40B' xmi:type='uml:Generalization'> </generalization>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::ExamSerializer' visibility='public' xmi:id='14ce635f4c8cff028ffad31eaf41dccb' xmi:type='uml:Class'>
+      <generalization general='5ec10e26f50df3f8c913ae07a759479b' xmi:id='31023B.1FBF69' xmi:type='uml:Generalization'> </generalization>
+      <generalization general='87a198fdb352bdbfdfa3f5ba2b87a196' xmi:id='31023B.1FBF69' xmi:type='uml:Generalization'> </generalization>
+      <generalization general='6303d121804618c8f8619d980dfb6d93' xmi:id='31023B.1FBF69' xmi:type='uml:Generalization'> </generalization>
+      <generalization general='f816a856426665b0921f94e5b6c3c783' xmi:id='31023B.1FBF69' xmi:type='uml:Generalization'> </generalization>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::QuestionAnswerSerializer' visibility='public' xmi:id='e5206d0729f48e81687fafe3101089f5' xmi:type='uml:Class'>
+      <generalization general='300e8713e4bbc3dcb23df68814b7bdef' xmi:id='7B9E86.ACFDAF' xmi:type='uml:Generalization'> </generalization>
+      <generalization general='401c01f4966c2ce030f66a3e851dec12' xmi:id='7B9E86.ACFDAF' xmi:type='uml:Generalization'> </generalization>
+      <generalization general='a4369bb8775ccd0a92c1205636177c4f' xmi:id='7B9E86.ACFDAF' xmi:type='uml:Generalization'> </generalization>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::QuestionSerializer' visibility='public' xmi:id='f816a856426665b0921f94e5b6c3c783' xmi:type='uml:Class'>
+      <generalization general='1fb37886073736077bf6ada288cfde83' xmi:id='3600D5.FB3691' xmi:type='uml:Generalization'> </generalization>
+      <generalization general='0faa1a7b445ef48b3047b4554ec3ce4a' xmi:id='3600D5.FB3691' xmi:type='uml:Generalization'> </generalization>
+      <generalization general='22a01d7bbbca9e0b13a55121e322a625' xmi:id='3600D5.FB3691' xmi:type='uml:Generalization'> </generalization>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::SubmissionSerializer' visibility='public' xmi:id='e0038ca4f4aaff37d64bbfa6775dcf6b' xmi:type='uml:Class'>
+      <generalization general='7bd7e71804a37b26ce553b98eeea50dd' xmi:id='575134.B07BE9' xmi:type='uml:Generalization'> </generalization>
+      <generalization general='e5206d0729f48e81687fafe3101089f5' xmi:id='575134.B07BE9' xmi:type='uml:Generalization'> </generalization>
+      <generalization general='6bf8ea24f395688195d8670c0dbb94c0' xmi:id='575134.B07BE9' xmi:type='uml:Generalization'> </generalization>
+      <generalization general='0c9c3eb097d8d901efa9f83030e27855' xmi:id='575134.B07BE9' xmi:type='uml:Generalization'> </generalization>
+    </ownedMember>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='ActionCable::Channel::Base' visibility='public' xmi:id='113b2c25e72a0a11a7fe1bac21bec81b' xmi:type='uml:Class'/>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='ActionCable::Connection::Base' visibility='public' xmi:id='e5d086a7404dba30c1a4266421d51091' xmi:type='uml:Class'/>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='ActionController::API' visibility='public' xmi:id='166730adf6d5d9801981ff7d9207d26c' xmi:type='uml:Class'/>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='DeviseTokenAuth::PasswordsController' visibility='public' xmi:id='08adc046072c0c42ed7fcd0375048acd' xmi:type='uml:Class'/>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='DeviseTokenAuth::RegistrationsController' visibility='public' xmi:id='655fdfda1ba8a0a71668876dee3e912c' xmi:type='uml:Class'/>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='DeviseTokenAuth::SessionsController' visibility='public' xmi:id='5cb97ed4ff5f54aa94532e0b43a92e17' xmi:type='uml:Class'/>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='ActionController::Base' visibility='public' xmi:id='2e17e9b7b2b227b1bfcd8226443a90f7' xmi:type='uml:Class'/>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='Draper::Decorator' visibility='public' xmi:id='b29c781876c1a16aa0312b651bcecb9f' xmi:type='uml:Class'/>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='YAAF::Form' visibility='public' xmi:id='a1f7b5e6a34450b88859828aaca9fb8c' xmi:type='uml:Class'/>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='ActiveJob::Base' visibility='public' xmi:id='a86c2feaafd0ed10ec6c8b28d1a729b0' xmi:type='uml:Class'/>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='ActionMailer::Base' visibility='public' xmi:id='404664b32e10f3121fb806c88c72a03f' xmi:type='uml:Class'/>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='ActiveRecord::Base' visibility='public' xmi:id='8d02ce9591f08f819bbd5b9916ee550c' xmi:type='uml:Class'/>
+    <ownedMember isAbstract='false' isActive='false' isLeaf='false' name='::Scope' visibility='public' xmi:id='bd6406882e10956a82c0a3e96a3bf3a8' xmi:type='uml:Class'/>
+    <ownedMember isAbstract='false' isDerived='false' isLeaf='false' xmi:id='9CD851.35F361' xmi:type='uml:Association'>
+      <memberEnd xmi:idref='E46609.FD5553'/>
+      <ownedEnd aggregation='none' association='9CD851.35F361' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='67e12c5eccc9027ed57fc62fde444c90' xmi:type='uml:Property' xmi:id='E46609.FD5553'> </ownedEnd>
+      <memberEnd xmi:idref='2B4FC9.1BD53E'/>
+      <ownedEnd aggregation='composite' association='9CD851.35F361' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='d6f6d0c7d9660d4051564aab08ca6f99' xmi:type='uml:Property' xmi:id='2B4FC9.1BD53E'> </ownedEnd>
+    </ownedMember>
+    <ownedMember isAbstract='false' isDerived='false' isLeaf='false' xmi:id='9CD851.35F361' xmi:type='uml:Association'>
+      <memberEnd xmi:idref='E46609.FD5553'/>
+      <ownedEnd aggregation='none' association='9CD851.35F361' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='67e12c5eccc9027ed57fc62fde444c90' xmi:type='uml:Property' xmi:id='E46609.FD5553'> </ownedEnd>
+      <memberEnd xmi:idref='D0C310.CCF768'/>
+      <ownedEnd aggregation='composite' association='9CD851.35F361' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='14e7c0acb145906db36012cda290d3f3' xmi:type='uml:Property' xmi:id='D0C310.CCF768'> </ownedEnd>
+    </ownedMember>
+    <ownedMember isAbstract='false' isDerived='false' isLeaf='false' xmi:id='F5C446.199901' xmi:type='uml:Association'>
+      <memberEnd xmi:idref='B4CF99.CEE02E'/>
+      <ownedEnd aggregation='none' association='F5C446.199901' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='977e1e7edd6b398c5d2eec973c69084b' xmi:type='uml:Property' xmi:id='B4CF99.CEE02E'> </ownedEnd>
+      <memberEnd xmi:idref='91BF9A.B8DB25'/>
+      <ownedEnd aggregation='composite' association='F5C446.199901' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='12a8784f465046aab006966173792770' xmi:type='uml:Property' xmi:id='91BF9A.B8DB25'> </ownedEnd>
+    </ownedMember>
+    <ownedMember isAbstract='false' isDerived='false' isLeaf='false' xmi:id='F5C446.199901' xmi:type='uml:Association'>
+      <memberEnd xmi:idref='B4CF99.CEE02E'/>
+      <ownedEnd aggregation='none' association='F5C446.199901' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='977e1e7edd6b398c5d2eec973c69084b' xmi:type='uml:Property' xmi:id='B4CF99.CEE02E'> </ownedEnd>
+      <memberEnd xmi:idref='94DA1D.447079'/>
+      <ownedEnd aggregation='composite' association='F5C446.199901' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='cf8addd9860491a07f2a49f8c99de490' xmi:type='uml:Property' xmi:id='94DA1D.447079'> </ownedEnd>
+    </ownedMember>
+    <ownedMember isAbstract='false' isDerived='false' isLeaf='false' xmi:id='EEDED0.C1DF81' xmi:type='uml:Association'>
+      <memberEnd xmi:idref='91BF9A.B8DB25'/>
+      <ownedEnd aggregation='none' association='EEDED0.C1DF81' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='12a8784f465046aab006966173792770' xmi:type='uml:Property' xmi:id='91BF9A.B8DB25'> </ownedEnd>
+      <memberEnd xmi:idref='D6F846.D4EA5B'/>
+      <ownedEnd aggregation='composite' association='EEDED0.C1DF81' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='4b38f80165eb6ec642d9951e222982b8' xmi:type='uml:Property' xmi:id='D6F846.D4EA5B'> </ownedEnd>
+    </ownedMember>
+    <ownedMember isAbstract='false' isDerived='false' isLeaf='false' xmi:id='EEDED0.C1DF81' xmi:type='uml:Association'>
+      <memberEnd xmi:idref='91BF9A.B8DB25'/>
+      <ownedEnd aggregation='none' association='EEDED0.C1DF81' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='12a8784f465046aab006966173792770' xmi:type='uml:Property' xmi:id='91BF9A.B8DB25'> </ownedEnd>
+      <memberEnd xmi:idref='B2F83F.059B45'/>
+      <ownedEnd aggregation='composite' association='EEDED0.C1DF81' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='054da3778d5c56fdf63eebc52733f3b4' xmi:type='uml:Property' xmi:id='B2F83F.059B45'> </ownedEnd>
+    </ownedMember>
+    <ownedMember isAbstract='false' isDerived='false' isLeaf='false' xmi:id='1AD990.DA1A17' xmi:type='uml:Association'>
+      <memberEnd xmi:idref='94DA1D.447079'/>
+      <ownedEnd aggregation='none' association='1AD990.DA1A17' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='cf8addd9860491a07f2a49f8c99de490' xmi:type='uml:Property' xmi:id='94DA1D.447079'> </ownedEnd>
+      <memberEnd xmi:idref='7D8983.224DFD'/>
+      <ownedEnd aggregation='composite' association='1AD990.DA1A17' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='b66f6176148260b2b0f6513c24b0f654' xmi:type='uml:Property' xmi:id='7D8983.224DFD'> </ownedEnd>
+    </ownedMember>
+    <ownedMember isAbstract='false' isDerived='false' isLeaf='false' xmi:id='1AD990.DA1A17' xmi:type='uml:Association'>
+      <memberEnd xmi:idref='94DA1D.447079'/>
+      <ownedEnd aggregation='none' association='1AD990.DA1A17' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='cf8addd9860491a07f2a49f8c99de490' xmi:type='uml:Property' xmi:id='94DA1D.447079'> </ownedEnd>
+      <memberEnd xmi:idref='4584E6.EA63D9'/>
+      <ownedEnd aggregation='composite' association='1AD990.DA1A17' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='e4182899ae45d220e5624fea660c6072' xmi:type='uml:Property' xmi:id='4584E6.EA63D9'> </ownedEnd>
+    </ownedMember>
+    <ownedMember isAbstract='false' isDerived='false' isLeaf='false' xmi:id='1AD990.DA1A17' xmi:type='uml:Association'>
+      <memberEnd xmi:idref='94DA1D.447079'/>
+      <ownedEnd aggregation='none' association='1AD990.DA1A17' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='cf8addd9860491a07f2a49f8c99de490' xmi:type='uml:Property' xmi:id='94DA1D.447079'> </ownedEnd>
+      <memberEnd xmi:idref='D2157E.667740'/>
+      <ownedEnd aggregation='composite' association='1AD990.DA1A17' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='f88d27672995bc9bbba011edc48036be' xmi:type='uml:Property' xmi:id='D2157E.667740'> </ownedEnd>
+    </ownedMember>
+    <ownedMember isAbstract='false' isDerived='false' isLeaf='false' xmi:id='1AD990.DA1A17' xmi:type='uml:Association'>
+      <memberEnd xmi:idref='94DA1D.447079'/>
+      <ownedEnd aggregation='none' association='1AD990.DA1A17' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='cf8addd9860491a07f2a49f8c99de490' xmi:type='uml:Property' xmi:id='94DA1D.447079'> </ownedEnd>
+      <memberEnd xmi:idref='1E4088.75C51D'/>
+      <ownedEnd aggregation='composite' association='1AD990.DA1A17' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='7ecaee6b91b79b0fc0094a6586cdb233' xmi:type='uml:Property' xmi:id='1E4088.75C51D'> </ownedEnd>
+    </ownedMember>
+    <ownedMember isAbstract='false' isDerived='false' isLeaf='false' xmi:id='1AD990.DA1A17' xmi:type='uml:Association'>
+      <memberEnd xmi:idref='94DA1D.447079'/>
+      <ownedEnd aggregation='none' association='1AD990.DA1A17' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='cf8addd9860491a07f2a49f8c99de490' xmi:type='uml:Property' xmi:id='94DA1D.447079'> </ownedEnd>
+      <memberEnd xmi:idref='DABCDB.E9D035'/>
+      <ownedEnd aggregation='composite' association='1AD990.DA1A17' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='341eb73f243d13096d03110a083862bc' xmi:type='uml:Property' xmi:id='DABCDB.E9D035'> </ownedEnd>
+    </ownedMember>
+    <ownedMember isAbstract='false' isDerived='false' isLeaf='false' xmi:id='1AD990.DA1A17' xmi:type='uml:Association'>
+      <memberEnd xmi:idref='94DA1D.447079'/>
+      <ownedEnd aggregation='none' association='1AD990.DA1A17' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='cf8addd9860491a07f2a49f8c99de490' xmi:type='uml:Property' xmi:id='94DA1D.447079'> </ownedEnd>
+      <memberEnd xmi:idref='641FE4.55D620'/>
+      <ownedEnd aggregation='composite' association='1AD990.DA1A17' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='7e6735f09c0a9a32f8082f4fec34a7cc' xmi:type='uml:Property' xmi:id='641FE4.55D620'> </ownedEnd>
+    </ownedMember>
+    <ownedMember isAbstract='false' isDerived='false' isLeaf='false' xmi:id='1AD990.DA1A17' xmi:type='uml:Association'>
+      <memberEnd xmi:idref='94DA1D.447079'/>
+      <ownedEnd aggregation='none' association='1AD990.DA1A17' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='cf8addd9860491a07f2a49f8c99de490' xmi:type='uml:Property' xmi:id='94DA1D.447079'> </ownedEnd>
+      <memberEnd xmi:idref='A65584.B37A78'/>
+      <ownedEnd aggregation='composite' association='1AD990.DA1A17' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='0c92dbf0579b0b356084b5e63cfd3696' xmi:type='uml:Property' xmi:id='A65584.B37A78'> </ownedEnd>
+    </ownedMember>
+    <ownedMember isAbstract='false' isDerived='false' isLeaf='false' xmi:id='1AD990.DA1A17' xmi:type='uml:Association'>
+      <memberEnd xmi:idref='94DA1D.447079'/>
+      <ownedEnd aggregation='none' association='1AD990.DA1A17' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='cf8addd9860491a07f2a49f8c99de490' xmi:type='uml:Property' xmi:id='94DA1D.447079'> </ownedEnd>
+      <memberEnd xmi:idref='797D8B.968BB4'/>
+      <ownedEnd aggregation='composite' association='1AD990.DA1A17' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='1404e71cb4a0088cbdee8b51f79c2f21' xmi:type='uml:Property' xmi:id='797D8B.968BB4'> </ownedEnd>
+    </ownedMember>
+    <ownedMember isAbstract='false' isDerived='false' isLeaf='false' xmi:id='1AD990.DA1A17' xmi:type='uml:Association'>
+      <memberEnd xmi:idref='94DA1D.447079'/>
+      <ownedEnd aggregation='none' association='1AD990.DA1A17' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='cf8addd9860491a07f2a49f8c99de490' xmi:type='uml:Property' xmi:id='94DA1D.447079'> </ownedEnd>
+      <memberEnd xmi:idref='A138B5.B27F65'/>
+      <ownedEnd aggregation='composite' association='1AD990.DA1A17' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='3bd79ed72aebd202522669376d3cde4d' xmi:type='uml:Property' xmi:id='A138B5.B27F65'> </ownedEnd>
+    </ownedMember>
+    <ownedMember isAbstract='false' isDerived='false' isLeaf='false' xmi:id='5B71DB.6CCA05' xmi:type='uml:Association'>
+      <memberEnd xmi:idref='CFF9AA.37E841'/>
+      <ownedEnd aggregation='none' association='5B71DB.6CCA05' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='e4e88817ab5a763145aa5dd2d021ffa2' xmi:type='uml:Property' xmi:id='CFF9AA.37E841'> </ownedEnd>
+      <memberEnd xmi:idref='0384C4.14468A'/>
+      <ownedEnd aggregation='composite' association='5B71DB.6CCA05' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='633e607727b085cef57d69a7774e0cb6' xmi:type='uml:Property' xmi:id='0384C4.14468A'> </ownedEnd>
+    </ownedMember>
+    <ownedMember isAbstract='false' isDerived='false' isLeaf='false' xmi:id='5B71DB.6CCA05' xmi:type='uml:Association'>
+      <memberEnd xmi:idref='CFF9AA.37E841'/>
+      <ownedEnd aggregation='none' association='5B71DB.6CCA05' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='e4e88817ab5a763145aa5dd2d021ffa2' xmi:type='uml:Property' xmi:id='CFF9AA.37E841'> </ownedEnd>
+      <memberEnd xmi:idref='6C4A1F.6B9F72'/>
+      <ownedEnd aggregation='composite' association='5B71DB.6CCA05' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='8720592a25b8cb03ead681676289541d' xmi:type='uml:Property' xmi:id='6C4A1F.6B9F72'> </ownedEnd>
+    </ownedMember>
+    <ownedMember isAbstract='false' isDerived='false' isLeaf='false' xmi:id='5B71DB.6CCA05' xmi:type='uml:Association'>
+      <memberEnd xmi:idref='CFF9AA.37E841'/>
+      <ownedEnd aggregation='none' association='5B71DB.6CCA05' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='e4e88817ab5a763145aa5dd2d021ffa2' xmi:type='uml:Property' xmi:id='CFF9AA.37E841'> </ownedEnd>
+      <memberEnd xmi:idref='68B8C2.6F3B0A'/>
+      <ownedEnd aggregation='composite' association='5B71DB.6CCA05' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='86e31855266c16083a725ca50536926d' xmi:type='uml:Property' xmi:id='68B8C2.6F3B0A'> </ownedEnd>
+    </ownedMember>
+    <ownedMember isAbstract='false' isDerived='false' isLeaf='false' xmi:id='5B71DB.6CCA05' xmi:type='uml:Association'>
+      <memberEnd xmi:idref='CFF9AA.37E841'/>
+      <ownedEnd aggregation='none' association='5B71DB.6CCA05' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='e4e88817ab5a763145aa5dd2d021ffa2' xmi:type='uml:Property' xmi:id='CFF9AA.37E841'> </ownedEnd>
+      <memberEnd xmi:idref='187921.5D52C0'/>
+      <ownedEnd aggregation='composite' association='5B71DB.6CCA05' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='f19876f1f79608fb3e54e98f03f14996' xmi:type='uml:Property' xmi:id='187921.5D52C0'> </ownedEnd>
+    </ownedMember>
+    <ownedMember isAbstract='false' isDerived='false' isLeaf='false' xmi:id='FF732B.CD3428' xmi:type='uml:Association'>
+      <memberEnd xmi:idref='6C4A1F.6B9F72'/>
+      <ownedEnd aggregation='none' association='FF732B.CD3428' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='8720592a25b8cb03ead681676289541d' xmi:type='uml:Property' xmi:id='6C4A1F.6B9F72'> </ownedEnd>
+      <memberEnd xmi:idref='38B15C.7EF692'/>
+      <ownedEnd aggregation='composite' association='FF732B.CD3428' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='7523738b7324cab23fafd6dfb24b2dc2' xmi:type='uml:Property' xmi:id='38B15C.7EF692'> </ownedEnd>
+    </ownedMember>
+    <ownedMember isAbstract='false' isDerived='false' isLeaf='false' xmi:id='1D1454.1DB0D7' xmi:type='uml:Association'>
+      <memberEnd xmi:idref='6A8644.84D53A'/>
+      <ownedEnd aggregation='none' association='1D1454.1DB0D7' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='8930f374581ff6e2676f9448c104c1e6' xmi:type='uml:Property' xmi:id='6A8644.84D53A'> </ownedEnd>
+      <memberEnd xmi:idref='A3D55D.C71BC9'/>
+      <ownedEnd aggregation='composite' association='1D1454.1DB0D7' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='0829663e64f2062fa942fff098a1793a' xmi:type='uml:Property' xmi:id='A3D55D.C71BC9'> </ownedEnd>
+    </ownedMember>
+    <ownedMember isAbstract='false' isDerived='false' isLeaf='false' xmi:id='46F0E6.90B652' xmi:type='uml:Association'>
+      <memberEnd xmi:idref='35B5FA.B020F6'/>
+      <ownedEnd aggregation='none' association='46F0E6.90B652' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='8675b9871235a267586d95f3ea0111fb' xmi:type='uml:Property' xmi:id='35B5FA.B020F6'> </ownedEnd>
+      <memberEnd xmi:idref='03FD01.4E6162'/>
+      <ownedEnd aggregation='composite' association='46F0E6.90B652' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='154b849e2a6c532e7b9d748bf4b85b30' xmi:type='uml:Property' xmi:id='03FD01.4E6162'> </ownedEnd>
+    </ownedMember>
+    <ownedMember isAbstract='false' isDerived='false' isLeaf='false' xmi:id='DE669C.E1C362' xmi:type='uml:Association'>
+      <memberEnd xmi:idref='F73E00.134FC1'/>
+      <ownedEnd aggregation='none' association='DE669C.E1C362' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='4baccc4b59c78565959715cd27d51db0' xmi:type='uml:Property' xmi:id='F73E00.134FC1'> </ownedEnd>
+      <memberEnd xmi:idref='B2A952.27B2D0'/>
+      <ownedEnd aggregation='composite' association='DE669C.E1C362' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='84434db500b1732fc329238b64a51e7e' xmi:type='uml:Property' xmi:id='B2A952.27B2D0'> </ownedEnd>
+    </ownedMember>
+    <ownedMember isAbstract='false' isDerived='false' isLeaf='false' xmi:id='C2D423.4AAE60' xmi:type='uml:Association'>
+      <memberEnd xmi:idref='36DDD0.54E288'/>
+      <ownedEnd aggregation='none' association='C2D423.4AAE60' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='4e7c4f8a7ac3f5a6769c77262b9aef69' xmi:type='uml:Property' xmi:id='36DDD0.54E288'> </ownedEnd>
+      <memberEnd xmi:idref='44017F.76AAC9'/>
+      <ownedEnd aggregation='composite' association='C2D423.4AAE60' isDerived='false' isDerivedUnion='false' isLeaf='false' isNavigable='true' isReadOnly='false' isStatic='false' type='9cb8daab67a120335246c1dcaaa2d66b' xmi:type='uml:Property' xmi:id='44017F.76AAC9'> </ownedEnd>
+    </ownedMember>
+  </uml:Model>
+  <uml:Diagram diagramType='ClassDiagram' documentation='' name='Xumlidot Class Diagram' toolName='Visual Paradigm' xmi:id='QfZKnwaFYHEAAQj3'>
+    <uml:Diagram.element>
+      <uml:DiagramElement preferredShapeType='Class' subject='67e12c5eccc9027ed57fc62fde444c90' xmi:id='67e12c5eccc9027ed57fc62fde444c90de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='d6f6d0c7d9660d4051564aab08ca6f99' xmi:id='d6f6d0c7d9660d4051564aab08ca6f99de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='113b2c25e72a0a11a7fe1bac21bec81bde' preferredShapeType='Generalization' subject='FCAF4D.3C89A4' toDiagramElement='d6f6d0c7d9660d4051564aab08ca6f99de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='14e7c0acb145906db36012cda290d3f3' xmi:id='14e7c0acb145906db36012cda290d3f3de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='e5d086a7404dba30c1a4266421d51091de' preferredShapeType='Generalization' subject='5C6F4C.CE989A' toDiagramElement='14e7c0acb145906db36012cda290d3f3de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='977e1e7edd6b398c5d2eec973c69084b' xmi:id='977e1e7edd6b398c5d2eec973c69084bde'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='12a8784f465046aab006966173792770' xmi:id='12a8784f465046aab006966173792770de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='4b38f80165eb6ec642d9951e222982b8' xmi:id='4b38f80165eb6ec642d9951e222982b8de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='bf1a115541aacd488726dca3cfc40861de' preferredShapeType='Generalization' subject='9FDE96.80C501' toDiagramElement='4b38f80165eb6ec642d9951e222982b8de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='054da3778d5c56fdf63eebc52733f3b4' xmi:id='054da3778d5c56fdf63eebc52733f3b4de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='17451b7e4b027910f84048c1e0fca574de' preferredShapeType='Generalization' subject='660EE7.87A3CA' toDiagramElement='054da3778d5c56fdf63eebc52733f3b4de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='cf8addd9860491a07f2a49f8c99de490' xmi:id='cf8addd9860491a07f2a49f8c99de490de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='b66f6176148260b2b0f6513c24b0f654' xmi:id='b66f6176148260b2b0f6513c24b0f654de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='166730adf6d5d9801981ff7d9207d26cde' preferredShapeType='Generalization' subject='34A39B.FC7361' toDiagramElement='b66f6176148260b2b0f6513c24b0f654de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='4b38f80165eb6ec642d9951e222982b8de' preferredShapeType='Generalization' subject='34A39B.FC7361' toDiagramElement='b66f6176148260b2b0f6513c24b0f654de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='e28b4735f9acab9c5e0218ca094423d8de' preferredShapeType='Generalization' subject='34A39B.FC7361' toDiagramElement='b66f6176148260b2b0f6513c24b0f654de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='06b497ee177b129ed67f8b03acf7ebf4de' preferredShapeType='Generalization' subject='34A39B.FC7361' toDiagramElement='b66f6176148260b2b0f6513c24b0f654de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='054da3778d5c56fdf63eebc52733f3b4de' preferredShapeType='Generalization' subject='34A39B.FC7361' toDiagramElement='b66f6176148260b2b0f6513c24b0f654de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='e4182899ae45d220e5624fea660c6072' xmi:id='e4182899ae45d220e5624fea660c6072de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='b66f6176148260b2b0f6513c24b0f654de' preferredShapeType='Generalization' subject='CF367F.C19A41' toDiagramElement='e4182899ae45d220e5624fea660c6072de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='f88d27672995bc9bbba011edc48036be' xmi:id='f88d27672995bc9bbba011edc48036bede'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='b66f6176148260b2b0f6513c24b0f654de' preferredShapeType='Generalization' subject='0DB78E.A94135' toDiagramElement='f88d27672995bc9bbba011edc48036bede'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='7ecaee6b91b79b0fc0094a6586cdb233' xmi:id='7ecaee6b91b79b0fc0094a6586cdb233de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='08adc046072c0c42ed7fcd0375048acdde' preferredShapeType='Generalization' subject='A36B70.DC9A83' toDiagramElement='7ecaee6b91b79b0fc0094a6586cdb233de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='4b38f80165eb6ec642d9951e222982b8de' preferredShapeType='Generalization' subject='A36B70.DC9A83' toDiagramElement='7ecaee6b91b79b0fc0094a6586cdb233de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='341eb73f243d13096d03110a083862bc' xmi:id='341eb73f243d13096d03110a083862bcde'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='655fdfda1ba8a0a71668876dee3e912cde' preferredShapeType='Generalization' subject='9415D7.27BCAE' toDiagramElement='341eb73f243d13096d03110a083862bcde'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='4b38f80165eb6ec642d9951e222982b8de' preferredShapeType='Generalization' subject='9415D7.27BCAE' toDiagramElement='341eb73f243d13096d03110a083862bcde'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='054da3778d5c56fdf63eebc52733f3b4de' preferredShapeType='Generalization' subject='9415D7.27BCAE' toDiagramElement='341eb73f243d13096d03110a083862bcde'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='7e6735f09c0a9a32f8082f4fec34a7cc' xmi:id='7e6735f09c0a9a32f8082f4fec34a7ccde'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='5cb97ed4ff5f54aa94532e0b43a92e17de' preferredShapeType='Generalization' subject='2E6A72.21A57C' toDiagramElement='7e6735f09c0a9a32f8082f4fec34a7ccde'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='4b38f80165eb6ec642d9951e222982b8de' preferredShapeType='Generalization' subject='2E6A72.21A57C' toDiagramElement='7e6735f09c0a9a32f8082f4fec34a7ccde'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='0c92dbf0579b0b356084b5e63cfd3696' xmi:id='0c92dbf0579b0b356084b5e63cfd3696de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='b66f6176148260b2b0f6513c24b0f654de' preferredShapeType='Generalization' subject='9579C0.0AE436' toDiagramElement='0c92dbf0579b0b356084b5e63cfd3696de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='1404e71cb4a0088cbdee8b51f79c2f21' xmi:id='1404e71cb4a0088cbdee8b51f79c2f21de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='b66f6176148260b2b0f6513c24b0f654de' preferredShapeType='Generalization' subject='23A21D.9DBFEA' toDiagramElement='1404e71cb4a0088cbdee8b51f79c2f21de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='3bd79ed72aebd202522669376d3cde4d' xmi:id='3bd79ed72aebd202522669376d3cde4dde'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='b66f6176148260b2b0f6513c24b0f654de' preferredShapeType='Generalization' subject='0290B3.A20DE5' toDiagramElement='3bd79ed72aebd202522669376d3cde4dde'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='cd8cc7547043cc31def246966439e7ff' xmi:id='cd8cc7547043cc31def246966439e7ffde'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='2e17e9b7b2b227b1bfcd8226443a90f7de' preferredShapeType='Generalization' subject='01EB0D.757143' toDiagramElement='cd8cc7547043cc31def246966439e7ffde'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='360ab3b6ad56b7a6287f8cc95b58b3f2de' preferredShapeType='Generalization' subject='01EB0D.757143' toDiagramElement='cd8cc7547043cc31def246966439e7ffde'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='c6e3187e23904eaa1e6524b23fcf038d' xmi:id='c6e3187e23904eaa1e6524b23fcf038dde'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='b29c781876c1a16aa0312b651bcecb9fde' preferredShapeType='Generalization' subject='56083F.A3BE1B' toDiagramElement='c6e3187e23904eaa1e6524b23fcf038dde'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='5b9d5f87b4c2b2a764f9db42d6e013ea' xmi:id='5b9d5f87b4c2b2a764f9db42d6e013eade'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='b29c781876c1a16aa0312b651bcecb9fde' preferredShapeType='Generalization' subject='23790B.0680E1' toDiagramElement='5b9d5f87b4c2b2a764f9db42d6e013eade'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='8af28eb862fdd7f17abc16c1a4eee388' xmi:id='8af28eb862fdd7f17abc16c1a4eee388de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='b29c781876c1a16aa0312b651bcecb9fde' preferredShapeType='Generalization' subject='CC0DB0.A0979F' toDiagramElement='8af28eb862fdd7f17abc16c1a4eee388de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='254856909d23a332715ff5b2b3478e4a' xmi:id='254856909d23a332715ff5b2b3478e4ade'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='a1f7b5e6a34450b88859828aaca9fb8cde' preferredShapeType='Generalization' subject='E56F47.6B3F9C' toDiagramElement='254856909d23a332715ff5b2b3478e4ade'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='7378d7e2ebcbe1a693f66b2207e5d731' xmi:id='7378d7e2ebcbe1a693f66b2207e5d731de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='a86c2feaafd0ed10ec6c8b28d1a729b0de' preferredShapeType='Generalization' subject='FC744C.01866C' toDiagramElement='7378d7e2ebcbe1a693f66b2207e5d731de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='ac7353895f0ddf3e8d037bb10200bf60' xmi:id='ac7353895f0ddf3e8d037bb10200bf60de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='404664b32e10f3121fb806c88c72a03fde' preferredShapeType='Generalization' subject='ED7C99.B35018' toDiagramElement='ac7353895f0ddf3e8d037bb10200bf60de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='62140a7b85bba1552813951058d6475b' xmi:id='62140a7b85bba1552813951058d6475bde'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='792caec8c9ca723a50c1122d6527f1c0de' preferredShapeType='Generalization' subject='C14DB0.DE4B91' toDiagramElement='62140a7b85bba1552813951058d6475bde'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='792caec8c9ca723a50c1122d6527f1c0' xmi:id='792caec8c9ca723a50c1122d6527f1c0de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='8d02ce9591f08f819bbd5b9916ee550cde' preferredShapeType='Generalization' subject='3EB2BD.50018B' toDiagramElement='792caec8c9ca723a50c1122d6527f1c0de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='42530ddad4b214b636b8774885c50aaede' preferredShapeType='Generalization' subject='3EB2BD.50018B' toDiagramElement='792caec8c9ca723a50c1122d6527f1c0de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='125823b8c7de0ad1a9c4291739cde516' xmi:id='125823b8c7de0ad1a9c4291739cde516de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='792caec8c9ca723a50c1122d6527f1c0de' preferredShapeType='Generalization' subject='FDDF05.D66E0D' toDiagramElement='125823b8c7de0ad1a9c4291739cde516de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='c1f3f000c52e0ff0eb44412eaa67d0b9' xmi:id='c1f3f000c52e0ff0eb44412eaa67d0b9de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='792caec8c9ca723a50c1122d6527f1c0de' preferredShapeType='Generalization' subject='522CBD.55FCFD' toDiagramElement='c1f3f000c52e0ff0eb44412eaa67d0b9de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='d819705e3a3e8511b0552eeb6d869839' xmi:id='d819705e3a3e8511b0552eeb6d869839de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='792caec8c9ca723a50c1122d6527f1c0de' preferredShapeType='Generalization' subject='68D80C.A5C767' toDiagramElement='d819705e3a3e8511b0552eeb6d869839de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='093779eef425c10528b52658eadef31c' xmi:id='093779eef425c10528b52658eadef31cde'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='792caec8c9ca723a50c1122d6527f1c0de' preferredShapeType='Generalization' subject='C281DF.569921' toDiagramElement='093779eef425c10528b52658eadef31cde'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='23e34fc7f56576c598eb540152f2bba2' xmi:id='23e34fc7f56576c598eb540152f2bba2de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='792caec8c9ca723a50c1122d6527f1c0de' preferredShapeType='Generalization' subject='A32A73.11415C' toDiagramElement='23e34fc7f56576c598eb540152f2bba2de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='93d5359c806b75455f2b9c8892a9bf83' xmi:id='93d5359c806b75455f2b9c8892a9bf83de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='792caec8c9ca723a50c1122d6527f1c0de' preferredShapeType='Generalization' subject='FD5122.5F9C8F' toDiagramElement='93d5359c806b75455f2b9c8892a9bf83de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='bc57386307767ebdfe9003d0a3f2f296' xmi:id='bc57386307767ebdfe9003d0a3f2f296de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='792caec8c9ca723a50c1122d6527f1c0de' preferredShapeType='Generalization' subject='32F349.3321A3' toDiagramElement='bc57386307767ebdfe9003d0a3f2f296de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='5cbaaad9e23825961b338fd874295c6ede' preferredShapeType='Generalization' subject='32F349.3321A3' toDiagramElement='bc57386307767ebdfe9003d0a3f2f296de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='e4e88817ab5a763145aa5dd2d021ffa2' xmi:id='e4e88817ab5a763145aa5dd2d021ffa2de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='633e607727b085cef57d69a7774e0cb6' xmi:id='633e607727b085cef57d69a7774e0cb6de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='8720592a25b8cb03ead681676289541dde' preferredShapeType='Generalization' subject='81BB01.52273D' toDiagramElement='633e607727b085cef57d69a7774e0cb6de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='8720592a25b8cb03ead681676289541d' xmi:id='8720592a25b8cb03ead681676289541dde'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='7523738b7324cab23fafd6dfb24b2dc2' xmi:id='7523738b7324cab23fafd6dfb24b2dc2de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='86e31855266c16083a725ca50536926d' xmi:id='86e31855266c16083a725ca50536926dde'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='8720592a25b8cb03ead681676289541dde' preferredShapeType='Generalization' subject='07C6A4.265263' toDiagramElement='86e31855266c16083a725ca50536926dde'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='f19876f1f79608fb3e54e98f03f14996' xmi:id='f19876f1f79608fb3e54e98f03f14996de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='8720592a25b8cb03ead681676289541dde' preferredShapeType='Generalization' subject='A0DBB9.151B37' toDiagramElement='f19876f1f79608fb3e54e98f03f14996de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='a6bba616183caab561baffce4358fed1' xmi:id='a6bba616183caab561baffce4358fed1de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='8930f374581ff6e2676f9448c104c1e6de' preferredShapeType='Generalization' subject='171359.B4F8A6' toDiagramElement='a6bba616183caab561baffce4358fed1de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='8930f374581ff6e2676f9448c104c1e6' xmi:id='8930f374581ff6e2676f9448c104c1e6de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='0829663e64f2062fa942fff098a1793a' xmi:id='0829663e64f2062fa942fff098a1793ade'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='8675b9871235a267586d95f3ea0111fb' xmi:id='8675b9871235a267586d95f3ea0111fbde'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='8930f374581ff6e2676f9448c104c1e6de' preferredShapeType='Generalization' subject='807A84.CB82C2' toDiagramElement='8675b9871235a267586d95f3ea0111fbde'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='154b849e2a6c532e7b9d748bf4b85b30' xmi:id='154b849e2a6c532e7b9d748bf4b85b30de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='bd6406882e10956a82c0a3e96a3bf3a8de' preferredShapeType='Generalization' subject='09E9E0.1830CE' toDiagramElement='154b849e2a6c532e7b9d748bf4b85b30de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='4baccc4b59c78565959715cd27d51db0' xmi:id='4baccc4b59c78565959715cd27d51db0de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='8930f374581ff6e2676f9448c104c1e6de' preferredShapeType='Generalization' subject='AAAEA5.DF8114' toDiagramElement='4baccc4b59c78565959715cd27d51db0de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='84434db500b1732fc329238b64a51e7e' xmi:id='84434db500b1732fc329238b64a51e7ede'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='bd6406882e10956a82c0a3e96a3bf3a8de' preferredShapeType='Generalization' subject='E47C3C.F0E79F' toDiagramElement='84434db500b1732fc329238b64a51e7ede'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='4e7c4f8a7ac3f5a6769c77262b9aef69' xmi:id='4e7c4f8a7ac3f5a6769c77262b9aef69de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='8930f374581ff6e2676f9448c104c1e6de' preferredShapeType='Generalization' subject='5F54E0.F6DB09' toDiagramElement='4e7c4f8a7ac3f5a6769c77262b9aef69de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='9cb8daab67a120335246c1dcaaa2d66b' xmi:id='9cb8daab67a120335246c1dcaaa2d66bde'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='bd6406882e10956a82c0a3e96a3bf3a8de' preferredShapeType='Generalization' subject='0CBF30.812383' toDiagramElement='9cb8daab67a120335246c1dcaaa2d66bde'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='b24f0ad6152983d4d4c5187d0f6673f3' xmi:id='b24f0ad6152983d4d4c5187d0f6673f3de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='8930f374581ff6e2676f9448c104c1e6de' preferredShapeType='Generalization' subject='BD4EEA.25CCCD' toDiagramElement='b24f0ad6152983d4d4c5187d0f6673f3de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='51c339cec87daa205fa77df528ff3dc3' xmi:id='51c339cec87daa205fa77df528ff3dc3de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='d055b09bbda3106022b303614c596f40de' preferredShapeType='Generalization' subject='F3FB4A.9DF40B' toDiagramElement='51c339cec87daa205fa77df528ff3dc3de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='14ce635f4c8cff028ffad31eaf41dccb' xmi:id='14ce635f4c8cff028ffad31eaf41dccbde'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='5ec10e26f50df3f8c913ae07a759479bde' preferredShapeType='Generalization' subject='31023B.1FBF69' toDiagramElement='14ce635f4c8cff028ffad31eaf41dccbde'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='87a198fdb352bdbfdfa3f5ba2b87a196de' preferredShapeType='Generalization' subject='31023B.1FBF69' toDiagramElement='14ce635f4c8cff028ffad31eaf41dccbde'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='6303d121804618c8f8619d980dfb6d93de' preferredShapeType='Generalization' subject='31023B.1FBF69' toDiagramElement='14ce635f4c8cff028ffad31eaf41dccbde'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='f816a856426665b0921f94e5b6c3c783de' preferredShapeType='Generalization' subject='31023B.1FBF69' toDiagramElement='14ce635f4c8cff028ffad31eaf41dccbde'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='e5206d0729f48e81687fafe3101089f5' xmi:id='e5206d0729f48e81687fafe3101089f5de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='300e8713e4bbc3dcb23df68814b7bdefde' preferredShapeType='Generalization' subject='7B9E86.ACFDAF' toDiagramElement='e5206d0729f48e81687fafe3101089f5de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='401c01f4966c2ce030f66a3e851dec12de' preferredShapeType='Generalization' subject='7B9E86.ACFDAF' toDiagramElement='e5206d0729f48e81687fafe3101089f5de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='a4369bb8775ccd0a92c1205636177c4fde' preferredShapeType='Generalization' subject='7B9E86.ACFDAF' toDiagramElement='e5206d0729f48e81687fafe3101089f5de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='f816a856426665b0921f94e5b6c3c783' xmi:id='f816a856426665b0921f94e5b6c3c783de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='1fb37886073736077bf6ada288cfde83de' preferredShapeType='Generalization' subject='3600D5.FB3691' toDiagramElement='f816a856426665b0921f94e5b6c3c783de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='0faa1a7b445ef48b3047b4554ec3ce4ade' preferredShapeType='Generalization' subject='3600D5.FB3691' toDiagramElement='f816a856426665b0921f94e5b6c3c783de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='22a01d7bbbca9e0b13a55121e322a625de' preferredShapeType='Generalization' subject='3600D5.FB3691' toDiagramElement='f816a856426665b0921f94e5b6c3c783de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='e0038ca4f4aaff37d64bbfa6775dcf6b' xmi:id='e0038ca4f4aaff37d64bbfa6775dcf6bde'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='7bd7e71804a37b26ce553b98eeea50ddde' preferredShapeType='Generalization' subject='575134.B07BE9' toDiagramElement='e0038ca4f4aaff37d64bbfa6775dcf6bde'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='e5206d0729f48e81687fafe3101089f5de' preferredShapeType='Generalization' subject='575134.B07BE9' toDiagramElement='e0038ca4f4aaff37d64bbfa6775dcf6bde'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='6bf8ea24f395688195d8670c0dbb94c0de' preferredShapeType='Generalization' subject='575134.B07BE9' toDiagramElement='e0038ca4f4aaff37d64bbfa6775dcf6bde'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='0c9c3eb097d8d901efa9f83030e27855de' preferredShapeType='Generalization' subject='575134.B07BE9' toDiagramElement='e0038ca4f4aaff37d64bbfa6775dcf6bde'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='113b2c25e72a0a11a7fe1bac21bec81b' xmi:id='113b2c25e72a0a11a7fe1bac21bec81bde'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='e5d086a7404dba30c1a4266421d51091' xmi:id='e5d086a7404dba30c1a4266421d51091de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='166730adf6d5d9801981ff7d9207d26c' xmi:id='166730adf6d5d9801981ff7d9207d26cde'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='08adc046072c0c42ed7fcd0375048acd' xmi:id='08adc046072c0c42ed7fcd0375048acdde'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='655fdfda1ba8a0a71668876dee3e912c' xmi:id='655fdfda1ba8a0a71668876dee3e912cde'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='5cb97ed4ff5f54aa94532e0b43a92e17' xmi:id='5cb97ed4ff5f54aa94532e0b43a92e17de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='2e17e9b7b2b227b1bfcd8226443a90f7' xmi:id='2e17e9b7b2b227b1bfcd8226443a90f7de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='b29c781876c1a16aa0312b651bcecb9f' xmi:id='b29c781876c1a16aa0312b651bcecb9fde'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='a1f7b5e6a34450b88859828aaca9fb8c' xmi:id='a1f7b5e6a34450b88859828aaca9fb8cde'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='a86c2feaafd0ed10ec6c8b28d1a729b0' xmi:id='a86c2feaafd0ed10ec6c8b28d1a729b0de'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='404664b32e10f3121fb806c88c72a03f' xmi:id='404664b32e10f3121fb806c88c72a03fde'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='8d02ce9591f08f819bbd5b9916ee550c' xmi:id='8d02ce9591f08f819bbd5b9916ee550cde'> </uml:DiagramElement>
+      <uml:DiagramElement preferredShapeType='Class' subject='bd6406882e10956a82c0a3e96a3bf3a8' xmi:id='bd6406882e10956a82c0a3e96a3bf3a8de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='67e12c5eccc9027ed57fc62fde444c90de' preferredShapeType='Association' subject='9CD851.35F361' toDiagramElement='d6f6d0c7d9660d4051564aab08ca6f99de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='67e12c5eccc9027ed57fc62fde444c90de' preferredShapeType='Association' subject='9CD851.35F361' toDiagramElement='14e7c0acb145906db36012cda290d3f3de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='977e1e7edd6b398c5d2eec973c69084bde' preferredShapeType='Association' subject='F5C446.199901' toDiagramElement='12a8784f465046aab006966173792770de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='977e1e7edd6b398c5d2eec973c69084bde' preferredShapeType='Association' subject='F5C446.199901' toDiagramElement='cf8addd9860491a07f2a49f8c99de490de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='12a8784f465046aab006966173792770de' preferredShapeType='Association' subject='EEDED0.C1DF81' toDiagramElement='4b38f80165eb6ec642d9951e222982b8de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='12a8784f465046aab006966173792770de' preferredShapeType='Association' subject='EEDED0.C1DF81' toDiagramElement='054da3778d5c56fdf63eebc52733f3b4de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='cf8addd9860491a07f2a49f8c99de490de' preferredShapeType='Association' subject='1AD990.DA1A17' toDiagramElement='b66f6176148260b2b0f6513c24b0f654de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='cf8addd9860491a07f2a49f8c99de490de' preferredShapeType='Association' subject='1AD990.DA1A17' toDiagramElement='e4182899ae45d220e5624fea660c6072de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='cf8addd9860491a07f2a49f8c99de490de' preferredShapeType='Association' subject='1AD990.DA1A17' toDiagramElement='f88d27672995bc9bbba011edc48036bede'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='cf8addd9860491a07f2a49f8c99de490de' preferredShapeType='Association' subject='1AD990.DA1A17' toDiagramElement='7ecaee6b91b79b0fc0094a6586cdb233de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='cf8addd9860491a07f2a49f8c99de490de' preferredShapeType='Association' subject='1AD990.DA1A17' toDiagramElement='341eb73f243d13096d03110a083862bcde'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='cf8addd9860491a07f2a49f8c99de490de' preferredShapeType='Association' subject='1AD990.DA1A17' toDiagramElement='7e6735f09c0a9a32f8082f4fec34a7ccde'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='cf8addd9860491a07f2a49f8c99de490de' preferredShapeType='Association' subject='1AD990.DA1A17' toDiagramElement='0c92dbf0579b0b356084b5e63cfd3696de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='cf8addd9860491a07f2a49f8c99de490de' preferredShapeType='Association' subject='1AD990.DA1A17' toDiagramElement='1404e71cb4a0088cbdee8b51f79c2f21de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='cf8addd9860491a07f2a49f8c99de490de' preferredShapeType='Association' subject='1AD990.DA1A17' toDiagramElement='3bd79ed72aebd202522669376d3cde4dde'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='e4e88817ab5a763145aa5dd2d021ffa2de' preferredShapeType='Association' subject='5B71DB.6CCA05' toDiagramElement='633e607727b085cef57d69a7774e0cb6de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='e4e88817ab5a763145aa5dd2d021ffa2de' preferredShapeType='Association' subject='5B71DB.6CCA05' toDiagramElement='8720592a25b8cb03ead681676289541dde'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='e4e88817ab5a763145aa5dd2d021ffa2de' preferredShapeType='Association' subject='5B71DB.6CCA05' toDiagramElement='86e31855266c16083a725ca50536926dde'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='e4e88817ab5a763145aa5dd2d021ffa2de' preferredShapeType='Association' subject='5B71DB.6CCA05' toDiagramElement='f19876f1f79608fb3e54e98f03f14996de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='8720592a25b8cb03ead681676289541dde' preferredShapeType='Association' subject='FF732B.CD3428' toDiagramElement='7523738b7324cab23fafd6dfb24b2dc2de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='8930f374581ff6e2676f9448c104c1e6de' preferredShapeType='Association' subject='1D1454.1DB0D7' toDiagramElement='0829663e64f2062fa942fff098a1793ade'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='8675b9871235a267586d95f3ea0111fbde' preferredShapeType='Association' subject='46F0E6.90B652' toDiagramElement='154b849e2a6c532e7b9d748bf4b85b30de'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='4baccc4b59c78565959715cd27d51db0de' preferredShapeType='Association' subject='DE669C.E1C362' toDiagramElement='84434db500b1732fc329238b64a51e7ede'> </uml:DiagramElement>
+      <uml:DiagramElement fromDiagramElement='4e7c4f8a7ac3f5a6769c77262b9aef69de' preferredShapeType='Association' subject='C2D423.4AAE60' toDiagramElement='9cb8daab67a120335246c1dcaaa2d66bde'> </uml:DiagramElement>
+    </uml:Diagram.element>
+  </uml:Diagram>
+</xmi:XMI>
