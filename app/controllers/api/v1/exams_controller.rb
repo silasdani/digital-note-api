@@ -18,10 +18,10 @@ module Api
       def index
         @exams = policy_scope(Exam.includes(%i[submissions file_attachment]))
 
-        @exams = @exams.active if params[:active] == '1'
-        @exams = @exams.draft if params[:draft] == '1'
-        @exams = @exams.archived if params[:archived] == '1'
-        @exams = @exams.completed if params[:completed] == '1'
+        @exams = @exams.active if params[:active] == "1"
+        @exams = @exams.draft if params[:draft] == "1"
+        @exams = @exams.archived if params[:archived] == "1"
+        @exams = @exams.completed if params[:completed] == "1"
 
         render json: ExamSerializer.new(@exams).serialized_json, status: :ok
       end
@@ -49,10 +49,10 @@ module Api
       def exam_params
         convert_file_params([:file],
                             params.require(:exam).permit(
-                              :access_key, :name, :start_time,
-                              :end_time, :security,
-                              :status, :file, :description, :exam_type
-                            )).merge({ questions: question_params })
+          :access_key, :name, :start_time,
+          :end_time, :security,
+          :status, :file, :description, :exam_type
+        )).merge({ questions: question_params })
       end
 
       def question_params

@@ -9,9 +9,9 @@ module Api
 
       def sign_up_params
         convert_file_params [:profile_pic],
-        params.require(:user).permit(:email, :password, :password_confirmation,
-                                     :username, :first_name, :last_name, :profile_pic,
-                                     :phone_no, :address)
+                            params.require(:user).permit(:email, :password, :password_confirmation,
+                                                         :username, :first_name, :last_name, :profile_pic,
+                                                         :phone_no, :address)
       end
 
       def render_create_success

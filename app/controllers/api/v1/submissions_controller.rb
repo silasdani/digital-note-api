@@ -6,7 +6,6 @@ module Api
       skip_before_action :authenticate_user!
 
       def index
-        
         @submissions = policy_scope(Exam.find(params[:exam_id]).submissions)
 
         render json: SubmissionSerializer.new(@submissions).serialized_json, status: :ok
@@ -14,7 +13,7 @@ module Api
 
       def create
         @exam = Exam.find_by(access_key: params[:access_key])
-        return render json: { error: 'Invalid exam access key!' }, status: :not_found if @exam.nil?
+        return render json: { error: "Invalid exam access key!" }, status: :not_found if @exam.nil?
         @submission = @exam.submissions.new submission_params
 
         if @submission.save!

@@ -4,7 +4,7 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = 'Digital Init'
+  config.site_title = "Digital Init"
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
@@ -39,9 +39,9 @@ ActiveAdmin.setup do |config|
   # a namespace block. For example, to change the site title
   # within a namespace:
   #
-    # config.namespace :admin do |admin|
-    #   admin.site_title = "The Admin BOSS"
-    # end
+  # config.namespace :admin do |admin|
+  #   admin.site_title = "The Admin BOSS"
+  # end
   #
   # This will ONLY change the title for the admin section. Other
   # namespaces will continue to use the main "site_title" configuration.
@@ -67,7 +67,7 @@ ActiveAdmin.setup do |config|
   # In case you prefer Pundit over other solutions you can here pass
   # the name of default policy class. This policy will be used in every
   # case when Pundit is unable to find suitable policy.
-  config.pundit_default_policy = 'Admin::ApplicationPolicy'
+  config.pundit_default_policy = "Admin::ApplicationPolicy"
 
   # If you wish to maintain a separate set of Pundit policies for admin
   # resources, you may set a namespace here that Pundit will search
@@ -171,7 +171,7 @@ ActiveAdmin.setup do |config|
   # Add tags to all pages logged in users see:
   #   config.meta_tags = { author: 'My Company' }
 
-  meta_tags_options = { viewport: 'width=device-width, initial-scale=1' }
+  meta_tags_options = { viewport: "width=device-width, initial-scale=1" }
   config.meta_tags = meta_tags_options
 
   # By default, sign up/sign in/recover password pages are excluded
